@@ -112,8 +112,29 @@ class MockModel:
 
 
 # ---------------------------------------------------------------------------
-# Real adapters (lazy import; fill TODOs)
+# Real adapters (lazy import)
 # ---------------------------------------------------------------------------
+def _retry(fn, tries: int = 6, base_delay: float = 2.0):
+    """Call fn(); on transient/rate-limit errors retry with exponential backoff.
+    Lets free-tier APIs (e.g. Gemini) survive RPM limits without crashing a run."""
+    import time
+    last = None
+    for i in range(tries):
+        try:
+            return fn()
+        except Exception as e:  # noqa: BLE001
+            last = e
+            msg = str(e).lower()
+            transient = any(k in msg for k in (
+                "rate", "429", "quota", "overload", "timeout",
+                "temporarily", "503", "500", "unavailable"))
+            if transient and i < tries - 1:
+                time.sleep(base_delay * (2 ** i))
+                continue
+            raise
+    raise last  # pragma: no cover
+
+
 class AnthropicModel:
     def __init__(self, name: str = "claude-sonnet-4-6"):
         self.name = name
@@ -123,11 +144,11 @@ class AnthropicModel:
     def generate(self, prompt: str) -> GenResult:
         import time
         t0 = time.time()
-        msg = self._client.messages.create(
+        msg = _retry(lambda: self._client.messages.create(
             model=self.name,
             max_tokens=1024,
             messages=[{"role": "user", "content": prompt}],
-        )
+        ))
         dt = (time.time() - t0) * 1000
         text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
         return GenResult(text, msg.usage.input_tokens, msg.usage.output_tokens, dt)
@@ -142,11 +163,11 @@ class OpenAIModel:
     def generate(self, prompt: str) -> GenResult:
         import time
         t0 = time.time()
-        r = self._client.chat.completions.create(
+        r = _retry(lambda: self._client.chat.completions.create(
             model=self.name,
             messages=[{"role": "user", "content": prompt}],
             max_tokens=1024,
-        )
+        ))
         dt = (time.time() - t0) * 1000
         u = r.usage
         return GenResult(r.choices[0].message.content or "",
@@ -172,11 +193,39 @@ class DeepSeekModel:
     def generate(self, prompt: str) -> GenResult:
         import time
         t0 = time.time()
-        r = self._client.chat.completions.create(
+        r = _retry(lambda: self._client.chat.completions.create(
             model=self.name,
             messages=[{"role": "user", "content": prompt}],
             max_tokens=1024,
+        ))
+        dt = (time.time() - t0) * 1000
+        u = r.usage
+        return GenResult(r.choices[0].message.content or "",
+                         u.prompt_tokens, u.completion_tokens, dt)
+
+
+class GeminiModel:
+    """Google Gemini via its OpenAI-compatible endpoint. Has a **free tier**
+    (Google AI Studio) subject to per-minute and per-day request limits; paid
+    Gemini Flash is very cheap. Requires `pip install openai` and GEMINI_API_KEY.
+    Models e.g. 'gemini-2.5-flash' (cheap/fast) or 'gemini-2.5-pro'."""
+
+    def __init__(self, name: str = "gemini-2.5-flash"):
+        self.name = name
+        from openai import OpenAI
+        self._client = OpenAI(
+            api_key=os.environ["GEMINI_API_KEY"],
+            base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
         )
+
+    def generate(self, prompt: str) -> GenResult:
+        import time
+        t0 = time.time()
+        r = _retry(lambda: self._client.chat.completions.create(
+            model=self.name,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=1024,
+        ))
         dt = (time.time() - t0) * 1000
         u = r.usage
         return GenResult(r.choices[0].message.content or "",
@@ -239,6 +288,7 @@ def get_model(spec: str) -> ModelClient:
         'anthropic:<model>'               e.g. anthropic:claude-sonnet-4-6
         'openai:<model>'
         'deepseek:<model>'                e.g. deepseek:deepseek-chat
+        'gemini:<model>'                  e.g. gemini:gemini-2.5-flash
         'hf:<org/model>'                  e.g. hf:meta-llama/Llama-3.1-8B-Instruct
                                           (incl. hf:deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
     """
@@ -254,6 +304,8 @@ def get_model(spec: str) -> ModelClient:
         return OpenAIModel(parts[1])
     if kind == "deepseek":
         return DeepSeekModel(parts[1] if len(parts) > 1 else "deepseek-chat")
+    if kind == "gemini":
+        return GeminiModel(parts[1] if len(parts) > 1 else "gemini-2.5-flash")
     if kind == "hf":
         # rejoin in case the org/model contains no extra colons
         return LocalHFModel(":".join(parts[1:]))
