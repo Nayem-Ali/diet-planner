@@ -1,0 +1,16 @@
+# Secrets — never commit
+.env
+.env.example
+*.key
+
+# Python envs / caches
+**/.venv/
+**/venv/
+**/__pycache__/
+*.pyc
+
+# Run artifacts / built index / bundles
+harness/out/
+harness/corpus/index/
+*.zip
+.DS_Store

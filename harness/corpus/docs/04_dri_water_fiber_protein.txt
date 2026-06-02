@@ -1,0 +1,31 @@
+@meta
+source: Dietary Reference Intakes (DRIs)
+publisher: National Academies of Sciences, Engineering, and Medicine (Institute of Medicine)
+year: 2005
+url: https://nap.nationalacademies.org/catalog/10925/dietary-reference-intakes-for-water-potassium-sodium-chloride-and-sulfate
+@end
+
+[[section: Total water]]
+The Adequate Intake for total water (from beverages and food combined) is about
+2.7 liters per day for adult women and about 3.7 liters per day for adult men.
+Roughly 80 percent of total water typically comes from beverages and 20 percent
+from food. Needs rise with heat, humidity, and physical activity.
+
+[[section: Dietary fiber]]
+The Adequate Intake for total fiber is 14 grams per 1,000 kcal consumed. For
+adults aged 19 to 50, this corresponds to about 25 grams per day for women and 38
+grams per day for men. Fiber supports laxation, satiety, and blood-glucose and
+serum-cholesterol regulation.
+
+[[section: Protein RDA]]
+The Recommended Dietary Allowance for protein in healthy adults is 0.8 g/kg body
+weight per day. Acceptable Macronutrient Distribution Ranges are 45 to 65 percent
+of energy from carbohydrate, 20 to 35 percent from fat, and 10 to 35 percent from
+protein.
+
+[[section: Safe weight loss]]
+A gradual rate of weight loss of about 0.5 to 1 kg (1 to 2 lb) per week is
+generally considered safe and sustainable, achieved through an energy deficit of
+roughly 500 to 1,000 kcal per day below total daily energy expenditure. Very low
+energy availability (below about 30 kcal per kg of fat-free mass per day) can
+disrupt endocrine and bone health and should be avoided.

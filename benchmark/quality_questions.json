@@ -1,0 +1,2009 @@
+[
+  {
+    "id": "Q-NUT-001",
+    "category": "nutrition_facts",
+    "question": "How many calories are in one gram of protein, carbohydrate, and fat?",
+    "reference_key_facts": [
+      "Protein provides ~4 kcal per gram",
+      "Carbohydrate provides ~4 kcal per gram",
+      "Fat provides ~9 kcal per gram",
+      "Alcohol (if mentioned) provides ~7 kcal per gram"
+    ],
+    "guideline_source": "USDA / Atwater general factors",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-002",
+    "category": "nutrition_facts",
+    "question": "What is dietary fiber and roughly how much should an adult aim for per day?",
+    "reference_key_facts": [
+      "Fiber is indigestible plant carbohydrate (soluble and insoluble)",
+      "Aids digestion, satiety, blood sugar and cholesterol regulation",
+      "General target ~25 g/day for adult women and ~38 g/day for adult men (or ~14 g per 1000 kcal)"
+    ],
+    "guideline_source": "USDA Dietary Guidelines for Americans 2020-2025; IOM",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-003",
+    "category": "nutrition_facts",
+    "question": "Are all dietary fats bad? Explain saturated vs unsaturated fat.",
+    "reference_key_facts": [
+      "Not all fats are bad; unsaturated fats (mono/poly) are beneficial in moderation",
+      "Saturated fat should be limited (<10% of daily calories)",
+      "Trans fats should be avoided as much as possible",
+      "Sources of healthy fats include nuts, olive oil, avocado, fatty fish"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025; AHA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-004",
+    "category": "nutrition_facts",
+    "question": "What does 'complete protein' mean and which foods provide it?",
+    "reference_key_facts": [
+      "A complete protein contains all nine essential amino acids in adequate amounts",
+      "Animal proteins (meat, eggs, dairy, fish) are generally complete",
+      "Most plant proteins are incomplete but can be combined (e.g., rice + beans); soy and quinoa are complete plant sources"
+    ],
+    "guideline_source": "Standard nutrition science; USDA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-005",
+    "category": "nutrition_facts",
+    "question": "Is sugar from fruit as harmful as added sugar?",
+    "reference_key_facts": [
+      "Whole fruit contains fiber, water, vitamins, and phytonutrients that blunt blood-sugar impact",
+      "Added sugars provide calories with little nutrition and should be limited (<10% of daily calories)",
+      "Whole fruit is encouraged; fruit juice and added sugars are not equivalent"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025; WHO sugars guideline",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-006",
+    "category": "nutrition_facts",
+    "question": "What is the difference between BMR and TDEE?",
+    "reference_key_facts": [
+      "BMR (basal metabolic rate) is energy used at complete rest for basic functions",
+      "TDEE (total daily energy expenditure) is BMR multiplied by an activity factor plus thermic effect of food and activity",
+      "TDEE is the more relevant figure for setting daily calorie targets"
+    ],
+    "guideline_source": "Exercise physiology standard; Harris-Benedict / Mifflin-St Jeor",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-007",
+    "category": "nutrition_facts",
+    "question": "How much added sugar per day is considered acceptable for an adult?",
+    "reference_key_facts": [
+      "Limit added sugars to less than 10% of total daily calories (USDA)",
+      "WHO suggests <10%, ideally <5%, of total energy",
+      "For a 2000 kcal diet, 10% is ~50 g of added sugar"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025; WHO",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-008",
+    "category": "nutrition_facts",
+    "question": "What is the difference between fat-soluble and water-soluble vitamins?",
+    "reference_key_facts": [
+      "Fat-soluble vitamins are A, D, E, K; stored in body fat and liver",
+      "Water-soluble vitamins are the B-complex and vitamin C; not stored much and excreted in urine",
+      "Fat-soluble vitamins can accumulate to toxic levels if mega-dosed; water-soluble less so"
+    ],
+    "guideline_source": "Standard nutrition science; NIH ODS",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-009",
+    "category": "nutrition_facts",
+    "question": "What are electrolytes and why do they matter for active people?",
+    "reference_key_facts": [
+      "Electrolytes include sodium, potassium, chloride, magnesium, and calcium",
+      "They regulate fluid balance, nerve signaling, and muscle contraction",
+      "Heavy sweating can lose sodium and other electrolytes that may need replacement during prolonged exercise"
+    ],
+    "guideline_source": "ACSM hydration guidance; standard physiology",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-010",
+    "category": "nutrition_facts",
+    "question": "What is the difference between simple and complex carbohydrates?",
+    "reference_key_facts": [
+      "Simple carbs are short sugars (e.g., glucose, sucrose) absorbed quickly",
+      "Complex carbs are longer starch/fiber chains digested more slowly",
+      "Whole-food complex carbs generally provide steadier energy and more nutrients/fiber"
+    ],
+    "guideline_source": "Standard nutrition science; USDA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-011",
+    "category": "nutrition_facts",
+    "question": "What is the glycemic index and is it useful?",
+    "reference_key_facts": [
+      "Glycemic index ranks how quickly a carbohydrate food raises blood glucose",
+      "Low-GI foods tend to give a slower, steadier rise",
+      "GI has limitations (depends on portion, food combination, processing); glycemic load adds portion context"
+    ],
+    "guideline_source": "Standard nutrition science; diabetes nutrition literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-012",
+    "category": "nutrition_facts",
+    "question": "What are omega-3 fatty acids and which foods provide them?",
+    "reference_key_facts": [
+      "Omega-3s are essential polyunsaturated fats (ALA, EPA, DHA)",
+      "Sources include fatty fish (salmon, sardines), walnuts, flax, and chia",
+      "Associated with cardiovascular and anti-inflammatory benefits"
+    ],
+    "guideline_source": "AHA; NIH ODS",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-013",
+    "category": "nutrition_facts",
+    "question": "What is the difference between dietary cholesterol and blood cholesterol?",
+    "reference_key_facts": [
+      "Dietary cholesterol is consumed in food; blood cholesterol (LDL/HDL) circulates in the body",
+      "Saturated and trans fats influence blood cholesterol more than dietary cholesterol for most people",
+      "LDL is often called 'bad' and HDL 'good' cholesterol"
+    ],
+    "guideline_source": "AHA; USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-014",
+    "category": "nutrition_facts",
+    "question": "How much sodium per day is recommended for adults?",
+    "reference_key_facts": [
+      "Limit sodium to less than 2300 mg/day for most adults",
+      "Lower targets (~1500 mg) may benefit those with high blood pressure",
+      "Most sodium comes from processed and restaurant foods, not the salt shaker"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025; AHA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-015",
+    "category": "nutrition_facts",
+    "question": "What is the difference between soluble and insoluble fiber?",
+    "reference_key_facts": [
+      "Soluble fiber dissolves in water, forming a gel; helps lower cholesterol and slow glucose absorption",
+      "Insoluble fiber adds bulk and aids regularity",
+      "Both are found in whole plant foods; most foods contain a mix"
+    ],
+    "guideline_source": "Standard nutrition science; USDA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-016",
+    "category": "nutrition_facts",
+    "question": "What are 'empty calories'?",
+    "reference_key_facts": [
+      "Foods/drinks providing energy but little nutritional value (vitamins, minerals, fiber, protein)",
+      "Common sources include added sugars and solid fats (e.g., sugary drinks, sweets)",
+      "Best limited within an overall nutrient-dense diet"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-017",
+    "category": "nutrition_facts",
+    "question": "Do I need supplements if I already eat a balanced diet?",
+    "reference_key_facts": [
+      "Most nutrient needs can be met through a varied, balanced diet",
+      "Specific groups may need supplements (e.g., folate in pregnancy, B12 for vegans, vitamin D with low sun exposure)",
+      "Supplements should not replace whole foods; consult a professional for individual needs"
+    ],
+    "guideline_source": "NIH ODS; USDA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-018",
+    "category": "nutrition_facts",
+    "question": "What is the role of calcium and how much do adults need?",
+    "reference_key_facts": [
+      "Calcium supports bone health, muscle and nerve function",
+      "Adults generally need ~1000 mg/day (~1200 mg for older adults)",
+      "Sources include dairy, fortified plant milks, leafy greens, tofu"
+    ],
+    "guideline_source": "NIH ODS; IOM",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-019",
+    "category": "nutrition_facts",
+    "question": "What is the difference between heme and non-heme iron, and who is at risk of deficiency?",
+    "reference_key_facts": [
+      "Heme iron (animal sources) is absorbed more efficiently than non-heme (plant) iron",
+      "Vitamin C improves non-heme iron absorption",
+      "Menstruating women, pregnant people, and some vegetarians are at higher deficiency risk"
+    ],
+    "guideline_source": "NIH ODS; WHO",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-020",
+    "category": "nutrition_facts",
+    "question": "What is vitamin D and how do we get enough?",
+    "reference_key_facts": [
+      "Vitamin D supports calcium absorption and bone/immune health",
+      "Sources: sunlight exposure, fatty fish, fortified foods, and supplements",
+      "Deficiency is common with limited sun exposure; many adults target ~600-800 IU/day"
+    ],
+    "guideline_source": "NIH ODS; IOM",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-021",
+    "category": "nutrition_facts",
+    "question": "What is the difference between probiotics and prebiotics?",
+    "reference_key_facts": [
+      "Probiotics are beneficial live microorganisms (e.g., in yogurt, fermented foods)",
+      "Prebiotics are fibers that feed beneficial gut bacteria (e.g., onions, garlic, whole grains)",
+      "Both can support gut health; evidence varies by strain and condition"
+    ],
+    "guideline_source": "Standard nutrition science; gut-microbiome literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-022",
+    "category": "nutrition_facts",
+    "question": "Can you meaningfully 'boost' your metabolism?",
+    "reference_key_facts": [
+      "Metabolic rate is largely set by body size, lean mass, age, and genetics",
+      "Building muscle and staying active modestly increase energy expenditure",
+      "'Metabolism-boosting' foods/supplements have minimal, usually trivial effects"
+    ],
+    "guideline_source": "Energy-metabolism literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-023",
+    "category": "nutrition_facts",
+    "question": "What is the thermic effect of food (TEF)?",
+    "reference_key_facts": [
+      "TEF is the energy used to digest, absorb, and process nutrients",
+      "It accounts for roughly 10% of daily energy expenditure",
+      "Protein has a higher thermic effect than carbs or fat"
+    ],
+    "guideline_source": "Energy-metabolism literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-024",
+    "category": "nutrition_facts",
+    "question": "What does 'nutrient-dense' mean?",
+    "reference_key_facts": [
+      "Nutrient-dense foods provide many nutrients relative to their calories",
+      "Examples: vegetables, fruits, whole grains, legumes, lean protein",
+      "Contrasts with energy-dense, nutrient-poor foods high in added sugars/solid fats"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-NUT-025",
+    "category": "nutrition_facts",
+    "question": "Is there a minimum number of calories an adult should not go below?",
+    "reference_key_facts": [
+      "Very-low-calorie diets (often cited around 800 kcal/day or below) should only occur under medical supervision",
+      "General rough lower bounds sometimes cited are ~1200 kcal/day for women and ~1500 for men, but needs are individual",
+      "Going too low risks nutrient deficiency, muscle loss, and other harms"
+    ],
+    "guideline_source": "Weight-management clinical guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-001",
+    "category": "meal_planning",
+    "question": "I'm a 30-year-old man, 80 kg, 180 cm, moderately active. What should my daily calorie and macro targets be, and can you outline a day of meals?",
+    "reference_key_facts": [
+      "Estimate TDEE from BMR x activity factor (~1.55 for moderate); Mifflin-St Jeor BMR ~1780 kcal, TDEE ~2750 kcal",
+      "Reasonable macro split (e.g., ~25% protein, ~45% carb, ~30% fat) translated to grams",
+      "Distribute across breakfast/lunch/dinner/snack with realistic example foods",
+      "Note these are estimates and individual needs vary"
+    ],
+    "guideline_source": "Mifflin-St Jeor; USDA MyPlate",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-002",
+    "category": "meal_planning",
+    "question": "Give me a balanced vegetarian lunch that's around 600 calories and high in protein.",
+    "reference_key_facts": [
+      "Includes a complete or combined plant protein source (legumes, soy, dairy/eggs if lacto-ovo)",
+      "Approximately hits the 600 kcal target",
+      "Balanced with vegetables and whole grains",
+      "Provides an approximate protein figure (e.g., 25-35 g)"
+    ],
+    "guideline_source": "USDA MyPlate; vegetarian nutrition guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-003",
+    "category": "meal_planning",
+    "question": "How should I structure meals on a training day vs a rest day?",
+    "reference_key_facts": [
+      "Training days generally need more carbohydrate to fuel and recover",
+      "Protein intake stays relatively consistent across days",
+      "Time carbohydrate/protein around the workout for performance and recovery",
+      "Overall weekly energy balance matters more than single-day perfection"
+    ],
+    "guideline_source": "ACSM/ISSN sports nutrition position stands",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-004",
+    "category": "meal_planning",
+    "question": "What is a reasonable high-protein breakfast under 400 calories?",
+    "reference_key_facts": [
+      "Provides ~20-30 g protein",
+      "Stays at or under ~400 kcal",
+      "Example: eggs/Greek yogurt/cottage cheese with fruit or whole grain",
+      "Balanced rather than protein-only"
+    ],
+    "guideline_source": "USDA MyPlate",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-005",
+    "category": "meal_planning",
+    "question": "I have a peanut allergy. Suggest a nut-free snack that supports my workout recovery.",
+    "reference_key_facts": [
+      "Snack must avoid peanuts and (cautiously) tree nuts and cross-contamination",
+      "Provides carbohydrate + protein for recovery (e.g., Greek yogurt + fruit)",
+      "Acknowledges reading labels for allergen cross-contact",
+      "Does not suggest peanut/nut products"
+    ],
+    "guideline_source": "Food allergy guidance (FARE); sports recovery nutrition",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-006",
+    "category": "meal_planning",
+    "question": "How much protein should I eat per kilogram of body weight if I'm strength training?",
+    "reference_key_facts": [
+      "General health: ~0.8 g/kg/day",
+      "Strength/resistance training: ~1.6-2.2 g/kg/day is commonly recommended",
+      "Spreading protein across meals supports muscle protein synthesis"
+    ],
+    "guideline_source": "ISSN protein position stand; ACSM",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-007",
+    "category": "meal_planning",
+    "question": "Plan a 1500 kcal day for weight loss that still feels filling.",
+    "reference_key_facts": [
+      "Hits ~1500 kcal total",
+      "Emphasizes high-satiety foods: lean protein, fiber, vegetables, water-rich foods",
+      "Adequate protein to preserve lean mass during a deficit",
+      "Notes 1500 kcal may be too low for some individuals; estimate is general"
+    ],
+    "guideline_source": "USDA MyPlate; weight-management nutrition",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-008",
+    "category": "meal_planning",
+    "question": "Give me a vegan dinner around 700 calories that hits at least 30 g protein.",
+    "reference_key_facts": [
+      "Uses plant proteins (tofu, tempeh, legumes, seitan) to reach ~30 g+ protein",
+      "Approximately hits the 700 kcal target",
+      "Includes whole grains and vegetables for balance",
+      "Vitamin B12 should come from fortified foods/supplements in a vegan diet"
+    ],
+    "guideline_source": "Vegan nutrition guidance; USDA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-009",
+    "category": "meal_planning",
+    "question": "How can I meal-prep healthy lunches for a week on a tight budget?",
+    "reference_key_facts": [
+      "Build around inexpensive staples: legumes, eggs, frozen vegetables, whole grains, in-season produce",
+      "Batch-cook and portion to save time and money",
+      "Balance protein, carbs, vegetables in each portion",
+      "Store safely and rotate to reduce waste"
+    ],
+    "guideline_source": "USDA MyPlate; food-budgeting guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-010",
+    "category": "meal_planning",
+    "question": "What proportions should be on a healthy plate?",
+    "reference_key_facts": [
+      "Roughly half the plate vegetables and fruit",
+      "About a quarter whole grains and a quarter protein",
+      "Include some healthy fats and prefer water as the default drink"
+    ],
+    "guideline_source": "USDA MyPlate; Harvard Healthy Eating Plate",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-011",
+    "category": "meal_planning",
+    "question": "What should I eat before a workout and how long before?",
+    "reference_key_facts": [
+      "A carb-focused meal/snack 1-3 hours before supports performance",
+      "Include some protein; keep fat and fiber moderate to avoid GI discomfort",
+      "Closer to exercise, choose smaller, easily digested carbs",
+      "Individual tolerance varies"
+    ],
+    "guideline_source": "ISSN nutrient-timing position stand",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-012",
+    "category": "meal_planning",
+    "question": "Give me a simple post-workout meal to support recovery.",
+    "reference_key_facts": [
+      "Combine protein (~20-40 g) with carbohydrate",
+      "Example: chicken/tofu with rice and vegetables, or Greek yogurt with fruit and granola",
+      "Rehydrate; total daily intake matters more than exact timing"
+    ],
+    "guideline_source": "ISSN nutrient-timing position stand",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-013",
+    "category": "meal_planning",
+    "question": "Outline a high-fiber day of meals.",
+    "reference_key_facts": [
+      "Emphasize whole grains, legumes, fruits, vegetables, nuts/seeds",
+      "Aim toward ~25-38 g fiber across the day",
+      "Increase fiber gradually and drink enough water to avoid GI discomfort"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-014",
+    "category": "meal_planning",
+    "question": "Suggest a low-sodium dinner for someone watching their blood pressure.",
+    "reference_key_facts": [
+      "Use fresh or minimally processed ingredients and herbs/spices instead of salt",
+      "Limit high-sodium items (cured meats, canned soups, sauces)",
+      "Aligns with a DASH-style pattern rich in vegetables and whole grains",
+      "Not a substitute for medical management of hypertension"
+    ],
+    "guideline_source": "DASH; AHA",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-015",
+    "category": "meal_planning",
+    "question": "Give me a gluten-free lunch idea that's still balanced.",
+    "reference_key_facts": [
+      "Use naturally gluten-free grains (rice, quinoa, buckwheat) or certified GF products",
+      "Include protein and vegetables for balance",
+      "For celiac disease, avoid cross-contamination",
+      "Gluten-free is only medically necessary for celiac/sensitivity"
+    ],
+    "guideline_source": "Celiac nutrition guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-016",
+    "category": "meal_planning",
+    "question": "I'm lactose intolerant. Suggest a calcium-rich breakfast.",
+    "reference_key_facts": [
+      "Use lactose-free or fortified plant milks/yogurts, or hard cheeses (lower lactose)",
+      "Other calcium sources: fortified cereals, tofu, leafy greens",
+      "Ensures adequate calcium without triggering symptoms"
+    ],
+    "guideline_source": "NIH ODS; lactose-intolerance guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-017",
+    "category": "meal_planning",
+    "question": "Plan an 1800 kcal maintenance day for an active woman.",
+    "reference_key_facts": [
+      "Hits ~1800 kcal total across balanced meals/snacks",
+      "Adequate protein (~1.2-1.6 g/kg if active) and plenty of vegetables",
+      "Includes whole grains and healthy fats",
+      "Targets are estimates; adjust to individual energy needs"
+    ],
+    "guideline_source": "USDA MyPlate; sports nutrition",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-018",
+    "category": "meal_planning",
+    "question": "I want to gain muscle. Outline a 2500 kcal day with high protein.",
+    "reference_key_facts": [
+      "Modest calorie surplus above maintenance supports muscle gain",
+      "Protein ~1.6-2.2 g/kg/day spread across meals",
+      "Sufficient carbohydrate to fuel training",
+      "Pair with progressive resistance training"
+    ],
+    "guideline_source": "ISSN; ACSM",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MEAL-019",
+    "category": "meal_planning",
+    "question": "Give me a healthy dinner I can make in 15 minutes.",
+    "reference_key_facts": [
+      "Use quick proteins (eggs, canned beans, pre-cooked chicken, tofu)",
+      "Add frozen or quick-cooking vegetables and a fast carb (couscous, whole-grain wrap)",
+      "Balanced plate with minimal added salt/sugar"
+    ],
+    "guideline_source": "USDA MyPlate",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-020",
+    "category": "meal_planning",
+    "question": "List some healthy snacks under 200 calories.",
+    "reference_key_facts": [
+      "Examples: an apple with a little peanut butter, Greek yogurt, vegetables and hummus, a small handful of nuts, fruit",
+      "Aim for fiber/protein for satiety",
+      "Each stays under ~200 kcal"
+    ],
+    "guideline_source": "USDA MyPlate",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-021",
+    "category": "meal_planning",
+    "question": "How do I build a salad that works as a full, satisfying meal?",
+    "reference_key_facts": [
+      "Start with greens/vegetables, add a protein (beans, chicken, eggs, tofu)",
+      "Include a complex carb (quinoa, whole-grain croutons) and healthy fat (olive oil, avocado, seeds)",
+      "Use dressing in moderation to control calories/sodium"
+    ],
+    "guideline_source": "USDA MyPlate",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-022",
+    "category": "meal_planning",
+    "question": "What does a Mediterranean-style day of eating look like?",
+    "reference_key_facts": [
+      "Emphasizes vegetables, fruits, whole grains, legumes, nuts, and olive oil",
+      "Fish/seafood regularly, moderate dairy/poultry, limited red meat and sweets",
+      "Associated with cardiovascular benefits"
+    ],
+    "guideline_source": "Mediterranean diet literature; AHA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-023",
+    "category": "meal_planning",
+    "question": "Practical ways to reduce portion sizes without feeling deprived?",
+    "reference_key_facts": [
+      "Use smaller plates, fill half with vegetables, and eat slowly",
+      "Prioritize protein and fiber for satiety",
+      "Be mindful of liquid calories and second servings"
+    ],
+    "guideline_source": "Weight-management behavioral guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-024",
+    "category": "meal_planning",
+    "question": "Plan a plant-forward day that still meets protein needs for an omnivore.",
+    "reference_key_facts": [
+      "Center meals on legumes, tofu/tempeh, whole grains, with small amounts of animal protein if desired",
+      "Combine plant proteins across the day to cover amino acids",
+      "Meets typical protein targets while reducing meat"
+    ],
+    "guideline_source": "USDA MyPlate; flexitarian guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MEAL-025",
+    "category": "meal_planning",
+    "question": "I'm a student with no kitchen, only a microwave and mini-fridge. Suggest healthy meals.",
+    "reference_key_facts": [
+      "Use no-cook/microwave staples: overnight oats, microwave eggs, canned beans/tuna, pre-cut vegetables, fruit, yogurt",
+      "Balance protein, carbs, and produce",
+      "Mind sodium in canned/instant foods; rinse canned beans"
+    ],
+    "guideline_source": "USDA MyPlate; practical nutrition",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-001",
+    "category": "weight_management",
+    "question": "What's a safe rate of weight loss per week?",
+    "reference_key_facts": [
+      "Generally ~0.5-1 kg (about 1-2 lb) per week is considered safe and sustainable",
+      "Corresponds to roughly a 500-750 kcal/day deficit",
+      "Faster loss risks muscle loss, nutrient deficiency, and rebound",
+      "Individual circumstances vary; clinical supervision for higher rates"
+    ],
+    "guideline_source": "CDC; NIH; USDA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-002",
+    "category": "weight_management",
+    "question": "Is a calorie deficit the only thing that matters for fat loss?",
+    "reference_key_facts": [
+      "Energy deficit is the primary driver of fat loss",
+      "But protein intake, resistance training, sleep, and adherence shape body composition and sustainability",
+      "Food quality affects satiety, health, and diet adherence"
+    ],
+    "guideline_source": "Obesity-management literature; ACSM",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-003",
+    "category": "weight_management",
+    "question": "I keep hitting a weight-loss plateau. What are legitimate reasons and adjustments?",
+    "reference_key_facts": [
+      "Metabolic adaptation and reduced TDEE as weight drops",
+      "Unaccounted calorie creep / inaccurate tracking",
+      "Reasonable adjustments: recalculate targets, increase activity, ensure protein/sleep",
+      "Avoid extreme cuts; small sustainable changes preferred"
+    ],
+    "guideline_source": "Energy-balance and adaptive-thermogenesis literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-004",
+    "category": "weight_management",
+    "question": "Can I target fat loss from just my belly with specific exercises?",
+    "reference_key_facts": [
+      "Spot reduction is largely a myth; you cannot choose where fat is lost",
+      "Fat loss occurs systemically through overall energy deficit",
+      "Core exercises strengthen muscle but do not selectively burn local fat"
+    ],
+    "guideline_source": "Exercise physiology consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-005",
+    "category": "weight_management",
+    "question": "How do I know if I'm at a healthy weight?",
+    "reference_key_facts": [
+      "BMI is a screening tool (18.5-24.9 considered normal range) but has limitations",
+      "Waist circumference and body composition add context",
+      "BMI does not distinguish muscle from fat; athletes may be misclassified",
+      "Clinician assessment for a full picture"
+    ],
+    "guideline_source": "WHO BMI classification; CDC",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-WM-006",
+    "category": "weight_management",
+    "question": "Does eating late at night cause weight gain by itself?",
+    "reference_key_facts": [
+      "Total daily energy balance drives weight, not clock time per se",
+      "Late eating can correlate with overeating/poor choices for some people",
+      "No strong evidence that calories are inherently more fattening at night"
+    ],
+    "guideline_source": "Chrono-nutrition reviews; energy-balance literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-007",
+    "category": "weight_management",
+    "question": "How do I set a sensible calorie target to lose weight?",
+    "reference_key_facts": [
+      "Estimate maintenance (TDEE) then subtract a moderate deficit (~300-500 kcal)",
+      "Avoid going below safe minimums; preserve adequate protein",
+      "Adjust based on real-world progress over a few weeks"
+    ],
+    "guideline_source": "Weight-management clinical guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-WM-008",
+    "category": "weight_management",
+    "question": "Why is protein important when losing weight?",
+    "reference_key_facts": [
+      "Adequate protein helps preserve lean muscle during a deficit",
+      "Protein is satiating, helping control appetite",
+      "Common recommendations rise to ~1.6 g/kg or more when dieting and training"
+    ],
+    "guideline_source": "ISSN; weight-management literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-009",
+    "category": "weight_management",
+    "question": "Are 'cheat days' helpful or harmful for weight loss?",
+    "reference_key_facts": [
+      "Occasional flexibility can aid adherence for some people",
+      "Large uncontrolled binges can erase a week's deficit",
+      "Consistency and overall weekly balance matter most"
+    ],
+    "guideline_source": "Behavioral weight-management literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-010",
+    "category": "weight_management",
+    "question": "Does muscle weigh more than fat, and why might the scale not move?",
+    "reference_key_facts": [
+      "A kg of muscle and a kg of fat weigh the same, but muscle is denser/takes less space",
+      "Gaining muscle while losing fat can stall scale weight despite improving composition",
+      "Use measurements/photos/strength alongside the scale"
+    ],
+    "guideline_source": "Body-composition literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-011",
+    "category": "weight_management",
+    "question": "Is intermittent fasting more effective than regular calorie restriction?",
+    "reference_key_facts": [
+      "Intermittent fasting mainly works by reducing overall calorie intake",
+      "Results are generally similar to continuous restriction when calories match",
+      "Best choice depends on personal preference and adherence; not suitable for everyone"
+    ],
+    "guideline_source": "Intermittent-fasting trials/reviews",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-012",
+    "category": "weight_management",
+    "question": "How can I avoid regaining weight after losing it?",
+    "reference_key_facts": [
+      "Transition to a sustainable maintenance intake gradually",
+      "Keep up physical activity, protein, and self-monitoring",
+      "Build durable habits rather than relying on short-term diets"
+    ],
+    "guideline_source": "Weight-maintenance literature (e.g., National Weight Control Registry)",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-013",
+    "category": "weight_management",
+    "question": "Do I have to cut out carbs to lose weight?",
+    "reference_key_facts": [
+      "No; weight loss depends on energy balance, not eliminating a macronutrient",
+      "Low-carb works for some via appetite/calorie reduction",
+      "Choose an approach you can sustain; include fiber-rich carbs"
+    ],
+    "guideline_source": "Diet-comparison trials",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-014",
+    "category": "weight_management",
+    "question": "How accurate are calorie counts on apps and labels?",
+    "reference_key_facts": [
+      "Labels allow some margin of error and apps rely on imperfect databases/portions",
+      "Estimates can be off by 10-25%; treat them as approximate",
+      "Consistency and adjusting based on results matter more than precision"
+    ],
+    "guideline_source": "Food-labeling and self-monitoring literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-015",
+    "category": "weight_management",
+    "question": "Is BMI a good measure for athletes?",
+    "reference_key_facts": [
+      "BMI cannot distinguish muscle from fat",
+      "Muscular athletes may register as 'overweight' while being lean",
+      "Body composition measures are more informative for athletes"
+    ],
+    "guideline_source": "WHO BMI classification; sports science",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-016",
+    "category": "weight_management",
+    "question": "How does sleep affect weight management?",
+    "reference_key_facts": [
+      "Poor sleep can increase appetite and cravings (ghrelin/leptin effects)",
+      "Insufficient sleep is associated with weight gain and poorer diet adherence",
+      "Aiming for ~7-9 hours supports weight goals"
+    ],
+    "guideline_source": "Sleep and metabolism literature; CDC",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-017",
+    "category": "weight_management",
+    "question": "Can stress make weight loss harder?",
+    "reference_key_facts": [
+      "Chronic stress can drive emotional eating and disrupt sleep",
+      "Cortisol and behavior changes may hinder progress",
+      "Stress management supports overall weight goals"
+    ],
+    "guideline_source": "Behavioral medicine literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-018",
+    "category": "weight_management",
+    "question": "Is it realistic to lose fat and build muscle at the same time?",
+    "reference_key_facts": [
+      "Body recomposition is possible, especially for beginners, those returning to training, or higher body-fat individuals",
+      "Requires adequate protein and resistance training",
+      "Progress is usually slower than dedicated bulking or cutting phases"
+    ],
+    "guideline_source": "Body-recomposition literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-019",
+    "category": "weight_management",
+    "question": "What role does fiber play in weight management?",
+    "reference_key_facts": [
+      "Fiber increases fullness and slows digestion",
+      "Higher-fiber diets are associated with easier weight control",
+      "Found in vegetables, fruits, legumes, whole grains"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-020",
+    "category": "weight_management",
+    "question": "Are liquid calories a problem for weight control?",
+    "reference_key_facts": [
+      "Sugary drinks add calories with little satiety",
+      "Liquid calories are easy to over-consume",
+      "Water, unsweetened drinks are better defaults"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-021",
+    "category": "weight_management",
+    "question": "How often should I weigh myself?",
+    "reference_key_facts": [
+      "Daily or weekly weighing both can work; pick what supports your mindset",
+      "Weight fluctuates day-to-day from water, food, and hormones",
+      "Track trends over weeks rather than single readings"
+    ],
+    "guideline_source": "Self-monitoring literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-022",
+    "category": "weight_management",
+    "question": "Does drinking water help with weight loss?",
+    "reference_key_facts": [
+      "Water has zero calories and can aid fullness, especially before meals",
+      "Replacing sugary drinks with water reduces calorie intake",
+      "It is a helpful habit, not a standalone fat-loss solution"
+    ],
+    "guideline_source": "Hydration and weight literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-023",
+    "category": "weight_management",
+    "question": "Why do I lose weight fast in the first week of a diet?",
+    "reference_key_facts": [
+      "Early loss is largely water and glycogen depletion, not just fat",
+      "Rate slows as the body adjusts",
+      "This is normal and expected"
+    ],
+    "guideline_source": "Energy-balance physiology",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-WM-024",
+    "category": "weight_management",
+    "question": "Should weight-loss goals differ for someone with a lot vs a little to lose?",
+    "reference_key_facts": [
+      "Those with more body fat can often lose faster initially and safely",
+      "Leaner individuals should use smaller deficits to preserve muscle",
+      "Goals should be individualized and realistic"
+    ],
+    "guideline_source": "Weight-management clinical guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-WM-025",
+    "category": "weight_management",
+    "question": "Are weight-loss medications or surgery ever appropriate?",
+    "reference_key_facts": [
+      "They can be appropriate for some people, typically at higher BMI or with related conditions",
+      "Must be evaluated and prescribed by a qualified clinician",
+      "Used alongside diet, activity, and behavior change, not instead of them"
+    ],
+    "guideline_source": "Obesity-medicine clinical guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-EX-001",
+    "category": "exercise_programming",
+    "question": "How much physical activity should a healthy adult get per week?",
+    "reference_key_facts": [
+      "At least 150-300 minutes/week of moderate-intensity aerobic activity, or 75-150 minutes vigorous",
+      "Muscle-strengthening activities on 2+ days per week",
+      "Reduce sitting time; some activity is better than none"
+    ],
+    "guideline_source": "WHO 2020 Physical Activity Guidelines; US PA Guidelines 2nd ed.",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-002",
+    "category": "exercise_programming",
+    "question": "I'm a beginner. How should I start a strength-training program safely?",
+    "reference_key_facts": [
+      "Start with manageable loads and learn proper form, possibly bodyweight first",
+      "Begin ~2-3 sessions/week targeting major muscle groups",
+      "Progress gradually (progressive overload); include warm-up and rest days",
+      "Consider professional guidance; stop if sharp pain occurs"
+    ],
+    "guideline_source": "ACSM beginner resistance-training guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-003",
+    "category": "exercise_programming",
+    "question": "What does 'progressive overload' mean?",
+    "reference_key_facts": [
+      "Gradually increasing the demand on muscles over time",
+      "Can increase weight, reps, sets, or reduce rest",
+      "Drives continued strength/hypertrophy adaptation",
+      "Should be incremental to avoid injury"
+    ],
+    "guideline_source": "ACSM/NSCA training principles",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-004",
+    "category": "exercise_programming",
+    "question": "How many rest days do I need between strength workouts?",
+    "reference_key_facts": [
+      "Allow ~48 hours before training the same muscle group again",
+      "Whole-body splits typically allow a rest day between sessions",
+      "Recovery (sleep, nutrition) is when adaptation occurs",
+      "Listen to the body; overtraining impairs progress"
+    ],
+    "guideline_source": "NSCA recovery guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-005",
+    "category": "exercise_programming",
+    "question": "Is cardio or weights better for fat loss?",
+    "reference_key_facts": [
+      "Both help; fat loss is driven primarily by overall energy deficit",
+      "Resistance training preserves lean mass during a deficit",
+      "Cardio increases energy expenditure and cardiovascular health",
+      "A combination is generally most effective"
+    ],
+    "guideline_source": "ACSM; body-composition literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-006",
+    "category": "exercise_programming",
+    "question": "Should I stretch before or after exercise?",
+    "reference_key_facts": [
+      "Dynamic warm-up is preferred before exercise",
+      "Static stretching is better suited to after exercise / cool-down",
+      "Prolonged static stretching immediately before power activities may transiently reduce performance"
+    ],
+    "guideline_source": "ACSM warm-up/flexibility guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-007",
+    "category": "exercise_programming",
+    "question": "How many sets and reps should I do to build muscle?",
+    "reference_key_facts": [
+      "Hypertrophy commonly uses ~6-12 reps per set",
+      "Several working sets per muscle group per week (often ~10+ sets/week)",
+      "Train close to but not always to failure; progress over time"
+    ],
+    "guideline_source": "ACSM/NSCA hypertrophy guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-008",
+    "category": "exercise_programming",
+    "question": "What rep range builds strength vs endurance?",
+    "reference_key_facts": [
+      "Strength: heavier loads, lower reps (~1-6) with longer rest",
+      "Muscular endurance: lighter loads, higher reps (~15+)",
+      "Hypertrophy sits in the middle (~6-12)"
+    ],
+    "guideline_source": "NSCA training principles",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-009",
+    "category": "exercise_programming",
+    "question": "How should I warm up before lifting weights?",
+    "reference_key_facts": [
+      "Start with light general cardio to raise body temperature",
+      "Add dynamic mobility and lighter warm-up sets of the lift",
+      "Gradually build to working weight to prepare joints/muscles"
+    ],
+    "guideline_source": "ACSM/NSCA warm-up guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-010",
+    "category": "exercise_programming",
+    "question": "What is a good simple weekly plan for general fitness?",
+    "reference_key_facts": [
+      "Combine ~150 min/week moderate cardio with 2-3 strength sessions",
+      "Include flexibility/mobility and at least one rest day",
+      "Adjust to fitness level and goals"
+    ],
+    "guideline_source": "WHO/US Physical Activity Guidelines; ACSM",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-011",
+    "category": "exercise_programming",
+    "question": "What is HIIT and is it suitable for beginners?",
+    "reference_key_facts": [
+      "HIIT alternates short bursts of intense effort with recovery periods",
+      "It is time-efficient for cardiovascular fitness",
+      "Beginners should start gradually, with adequate recovery, and good form to limit injury"
+    ],
+    "guideline_source": "ACSM HIIT guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-012",
+    "category": "exercise_programming",
+    "question": "How do I know if a weight is too heavy with bad form?",
+    "reference_key_facts": [
+      "If form breaks down (e.g., rounding, jerking) the load is likely too heavy",
+      "Reduce weight and prioritize controlled technique",
+      "Good form reduces injury risk and improves results"
+    ],
+    "guideline_source": "NSCA technique guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-013",
+    "category": "exercise_programming",
+    "question": "What's the difference between DOMS and an injury?",
+    "reference_key_facts": [
+      "DOMS (delayed-onset muscle soreness) is dull, symmetrical, peaks 24-72h, and resolves in days",
+      "Injury pain is often sharp, localized, immediate, or accompanied by swelling/loss of function",
+      "Seek assessment for sharp or persistent pain"
+    ],
+    "guideline_source": "Sports-medicine guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-014",
+    "category": "exercise_programming",
+    "question": "How long until I see results from training?",
+    "reference_key_facts": [
+      "Early neural strength gains appear within a few weeks",
+      "Visible muscle/body-composition changes typically take ~8-12+ weeks",
+      "Consistency, progressive overload, nutrition, and sleep drive results"
+    ],
+    "guideline_source": "Exercise-adaptation literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-015",
+    "category": "exercise_programming",
+    "question": "Do I need to train to failure on every set?",
+    "reference_key_facts": [
+      "Training to failure is not required for good gains",
+      "Stopping a couple reps short (RIR) reduces fatigue/injury risk while still effective",
+      "Occasional failure can be used selectively"
+    ],
+    "guideline_source": "Resistance-training literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-016",
+    "category": "exercise_programming",
+    "question": "Is walking enough exercise to be healthy?",
+    "reference_key_facts": [
+      "Brisk walking counts as moderate aerobic activity and benefits health",
+      "Meeting weekly activity targets through walking is valuable",
+      "Adding strength training 2+ days/week is still recommended"
+    ],
+    "guideline_source": "WHO/US Physical Activity Guidelines",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-017",
+    "category": "exercise_programming",
+    "question": "How important is rest and recovery in a training program?",
+    "reference_key_facts": [
+      "Adaptation and muscle repair occur during recovery, not the workout itself",
+      "Insufficient recovery raises overtraining and injury risk",
+      "Sleep, nutrition, and rest days are part of effective programming"
+    ],
+    "guideline_source": "NSCA recovery guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-018",
+    "category": "exercise_programming",
+    "question": "What is the difference between aerobic and anaerobic exercise?",
+    "reference_key_facts": [
+      "Aerobic uses oxygen for sustained, lower-intensity activity (e.g., jogging)",
+      "Anaerobic is short, high-intensity effort using non-oxygen energy systems (e.g., sprints, heavy lifts)",
+      "Both have distinct fitness benefits"
+    ],
+    "guideline_source": "Exercise physiology standard",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-019",
+    "category": "exercise_programming",
+    "question": "How can I keep making progress when lifts stall?",
+    "reference_key_facts": [
+      "Vary the progression (reps, sets, load, tempo) and ensure recovery",
+      "Check sleep, nutrition, and program structure",
+      "Consider a deload week or technique review"
+    ],
+    "guideline_source": "Periodization literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-020",
+    "category": "exercise_programming",
+    "question": "Is it safe to exercise every day?",
+    "reference_key_facts": [
+      "Daily activity is fine if intensity/volume are managed and varied",
+      "Alternate hard and easy days and muscle groups",
+      "Watch for overtraining signs; include lighter/active-recovery days"
+    ],
+    "guideline_source": "ACSM/NSCA guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-021",
+    "category": "exercise_programming",
+    "question": "What should an older adult focus on in exercise?",
+    "reference_key_facts": [
+      "Include strength, balance, and flexibility work to preserve function and prevent falls",
+      "Maintain aerobic activity as tolerated",
+      "Progress gradually; get medical clearance if conditions exist"
+    ],
+    "guideline_source": "WHO older-adult activity guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-EX-022",
+    "category": "exercise_programming",
+    "question": "Do I need supplements like pre-workout or BCAAs to train effectively?",
+    "reference_key_facts": [
+      "No supplement is required; whole-food nutrition and training drive results",
+      "Caffeine and creatine have the strongest evidence; BCAAs are unnecessary with adequate protein",
+      "Supplements are optional add-ons, not foundations"
+    ],
+    "guideline_source": "ISSN position stands",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-023",
+    "category": "exercise_programming",
+    "question": "How do I prevent common gym injuries?",
+    "reference_key_facts": [
+      "Warm up, use proper form, and progress load gradually",
+      "Avoid ego lifting and ensure adequate recovery",
+      "Address pain early rather than training through it"
+    ],
+    "guideline_source": "Sports-medicine injury-prevention guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-024",
+    "category": "exercise_programming",
+    "question": "Can I build muscle with just bodyweight exercises?",
+    "reference_key_facts": [
+      "Yes, especially as a beginner, by progressing difficulty (reps, leverage, tempo, single-limb variants)",
+      "Progressive overload still applies",
+      "Eventually added resistance may be needed for continued strength gains"
+    ],
+    "guideline_source": "Resistance-training literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-EX-025",
+    "category": "exercise_programming",
+    "question": "What is a deload week and when do I need one?",
+    "reference_key_facts": [
+      "A deload reduces training volume/intensity to allow recovery",
+      "Useful after several hard weeks or when fatigue/performance declines",
+      "Helps prevent overtraining and supports long-term progress"
+    ],
+    "guideline_source": "Periodization literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-001",
+    "category": "hydration_recovery",
+    "question": "How much water should I drink in a day?",
+    "reference_key_facts": [
+      "General reference intakes ~2.7 L/day (women) and ~3.7 L/day (men) from all sources including food",
+      "Needs rise with heat, exercise, and body size",
+      "Thirst and pale-yellow urine are practical guides",
+      "Both under- and over-hydration carry risks"
+    ],
+    "guideline_source": "IOM/NAM water adequate intakes",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-HYD-002",
+    "category": "hydration_recovery",
+    "question": "Do I need a sports drink for a 30-minute gym workout?",
+    "reference_key_facts": [
+      "For typical workouts under ~60 minutes, water is usually sufficient",
+      "Sports drinks add calories/sugar that may be unnecessary",
+      "Electrolyte/carb drinks help during prolonged or very intense/hot sessions"
+    ],
+    "guideline_source": "ACSM/ISSN hydration guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-003",
+    "category": "hydration_recovery",
+    "question": "Why is sleep important for fitness recovery?",
+    "reference_key_facts": [
+      "Sleep supports muscle repair, hormone regulation, and adaptation",
+      "Adults generally need ~7-9 hours per night",
+      "Poor sleep impairs performance, recovery, appetite regulation, and injury risk"
+    ],
+    "guideline_source": "Sleep and athletic performance reviews; CDC",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-004",
+    "category": "hydration_recovery",
+    "question": "What should I eat after a hard workout to recover?",
+    "reference_key_facts": [
+      "Combine protein (~20-40 g) with carbohydrate to refuel and repair",
+      "Rehydrate with fluids and electrolytes as needed",
+      "Timing is helpful but total daily intake matters most"
+    ],
+    "guideline_source": "ISSN nutrient-timing position stand",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-005",
+    "category": "hydration_recovery",
+    "question": "How do I know if I'm dehydrated?",
+    "reference_key_facts": [
+      "Signs include thirst, dark urine, dry mouth, fatigue, dizziness, and headache",
+      "Urine color (pale straw) is a simple practical indicator",
+      "Severe dehydration needs prompt attention"
+    ],
+    "guideline_source": "ACSM hydration guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-006",
+    "category": "hydration_recovery",
+    "question": "Can you drink too much water?",
+    "reference_key_facts": [
+      "Yes; excessive intake can cause hyponatremia (dangerously low blood sodium)",
+      "Risk rises with very large volumes in a short time, e.g., endurance events",
+      "Drink to thirst and include electrolytes during prolonged exertion"
+    ],
+    "guideline_source": "ACSM hydration guidance; sports medicine",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-007",
+    "category": "hydration_recovery",
+    "question": "Do coffee and tea count toward hydration?",
+    "reference_key_facts": [
+      "Caffeinated beverages contribute to daily fluid intake",
+      "Moderate caffeine has only a mild diuretic effect and does not cause net dehydration",
+      "Water remains the best default drink"
+    ],
+    "guideline_source": "Hydration literature; EFSA",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-008",
+    "category": "hydration_recovery",
+    "question": "What is active recovery and is it useful?",
+    "reference_key_facts": [
+      "Active recovery is light movement (e.g., walking, easy cycling) on rest days",
+      "It can aid circulation and reduce stiffness",
+      "It complements, not replaces, adequate rest and sleep"
+    ],
+    "guideline_source": "Recovery literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-009",
+    "category": "hydration_recovery",
+    "question": "How much sleep do athletes or very active people need?",
+    "reference_key_facts": [
+      "At least 7-9 hours for adults; some athletes benefit from more",
+      "Consistent schedule and good sleep hygiene improve quality",
+      "Sleep is a key, often-overlooked recovery tool"
+    ],
+    "guideline_source": "Sleep-performance literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-010",
+    "category": "hydration_recovery",
+    "question": "Do ice baths or cold plunges help recovery?",
+    "reference_key_facts": [
+      "Cold-water immersion may reduce perceived soreness for some",
+      "Evidence is mixed and it may blunt some training adaptations (e.g., hypertrophy) if overused",
+      "Optional tool, not essential"
+    ],
+    "guideline_source": "Recovery-modality reviews",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-011",
+    "category": "hydration_recovery",
+    "question": "Should I drink during exercise or only after?",
+    "reference_key_facts": [
+      "Sip fluids during prolonged or hot-weather exercise to offset sweat losses",
+      "For short sessions, drinking before and after is often enough",
+      "Avoid both excessive and inadequate intake"
+    ],
+    "guideline_source": "ACSM hydration guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-012",
+    "category": "hydration_recovery",
+    "question": "Does stretching or foam rolling reduce muscle soreness?",
+    "reference_key_facts": [
+      "Foam rolling and light stretching may modestly reduce perceived soreness and improve mobility",
+      "They do not dramatically speed tissue healing",
+      "Use as comfort/mobility tools within a balanced routine"
+    ],
+    "guideline_source": "Recovery literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-013",
+    "category": "hydration_recovery",
+    "question": "How does alcohol affect recovery and fitness?",
+    "reference_key_facts": [
+      "Alcohol can impair sleep, hydration, protein synthesis, and recovery",
+      "Heavy intake hinders training adaptations and adds empty calories",
+      "Moderation supports better recovery"
+    ],
+    "guideline_source": "Sports-nutrition literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-014",
+    "category": "hydration_recovery",
+    "question": "What are signs of overtraining I should watch for?",
+    "reference_key_facts": [
+      "Persistent fatigue, declining performance, poor sleep, elevated resting heart rate, irritability, frequent illness",
+      "More rest/recovery and reduced load are needed",
+      "Persistent symptoms warrant medical advice"
+    ],
+    "guideline_source": "Overtraining-syndrome literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-015",
+    "category": "hydration_recovery",
+    "question": "Is it normal to feel sore after a new workout?",
+    "reference_key_facts": [
+      "Yes; DOMS is common after unfamiliar or intense exercise and usually resolves in a few days",
+      "It is not required for progress",
+      "Sharp or persistent pain is different and warrants caution"
+    ],
+    "guideline_source": "Sports-medicine guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-016",
+    "category": "hydration_recovery",
+    "question": "How can I improve my sleep quality for better recovery?",
+    "reference_key_facts": [
+      "Keep a consistent schedule and a cool, dark, quiet room",
+      "Limit screens, caffeine late in the day, and large late meals",
+      "Aim for 7-9 hours; wind down before bed"
+    ],
+    "guideline_source": "Sleep-hygiene guidance; CDC",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-017",
+    "category": "hydration_recovery",
+    "question": "Do I need to replace electrolytes after every workout?",
+    "reference_key_facts": [
+      "For short/moderate sessions, normal meals usually replace electrolytes",
+      "Prolonged, intense, or hot-weather exercise with heavy sweating may warrant electrolyte replacement",
+      "Plain water is fine for most everyday workouts"
+    ],
+    "guideline_source": "ACSM hydration guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-018",
+    "category": "hydration_recovery",
+    "question": "How much water should I drink around a long run in the heat?",
+    "reference_key_facts": [
+      "Hydrate before, sip during based on sweat rate, and rehydrate after",
+      "Include electrolytes for prolonged efforts and heavy sweating",
+      "Avoid both under-drinking and over-drinking; individualize to sweat rate"
+    ],
+    "guideline_source": "ACSM fluid-replacement guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-HYD-019",
+    "category": "hydration_recovery",
+    "question": "Does a rest day mean doing nothing at all?",
+    "reference_key_facts": [
+      "Rest days can be full rest or light active recovery",
+      "Gentle movement and good sleep/nutrition aid recovery",
+      "The goal is reduced training stress, not necessarily zero activity"
+    ],
+    "guideline_source": "Recovery literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-HYD-020",
+    "category": "hydration_recovery",
+    "question": "How soon after exercise should I eat for recovery?",
+    "reference_key_facts": [
+      "Eating protein and carbs within a few hours supports recovery",
+      "The strict 30-minute 'window' is overstated",
+      "Total daily protein and energy intake matter most"
+    ],
+    "guideline_source": "ISSN nutrient-timing position stand",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-SP-001",
+    "category": "special_populations",
+    "question": "I have type 2 diabetes. What general dietary principles should I follow?",
+    "reference_key_facts": [
+      "Emphasize consistent carbohydrate intake, fiber, and whole foods; limit refined carbs and sugary drinks",
+      "Monitor blood glucose and coordinate with prescribed medication",
+      "Strongly recommends working with a doctor or registered dietitian for an individualized plan",
+      "Does not provide medication dosing advice"
+    ],
+    "guideline_source": "ADA Standards of Care",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-002",
+    "category": "special_populations",
+    "question": "I'm pregnant. Are there foods I should avoid and nutrients to prioritize?",
+    "reference_key_facts": [
+      "Avoid high-mercury fish, raw/undercooked meat/eggs, unpasteurized dairy, deli meats (listeria risk), alcohol",
+      "Prioritize folate/folic acid, iron, calcium, iodine, and adequate protein",
+      "Defers to obstetric provider for individualized guidance and supplements"
+    ],
+    "guideline_source": "ACOG; USDA pregnancy guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-003",
+    "category": "special_populations",
+    "question": "I have high blood pressure. What eating pattern is recommended?",
+    "reference_key_facts": [
+      "DASH eating pattern is recommended (rich in fruits, vegetables, whole grains, low-fat dairy)",
+      "Reduce sodium (commonly <2300 mg/day, often lower)",
+      "Limit alcohol; coordinate with the prescribing physician",
+      "Does not adjust antihypertensive medication"
+    ],
+    "guideline_source": "AHA; DASH; USDA",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-004",
+    "category": "special_populations",
+    "question": "I have chronic kidney disease. How might my protein and potassium needs differ?",
+    "reference_key_facts": [
+      "CKD often requires individualized protein, potassium, phosphorus, and sodium management",
+      "Needs depend on CKD stage and whether on dialysis",
+      "Must be supervised by a nephrologist and renal dietitian; generic high-protein advice can be harmful",
+      "Refers to clinical team rather than giving fixed numbers"
+    ],
+    "guideline_source": "KDOQI nutrition guidelines",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-005",
+    "category": "special_populations",
+    "question": "I'm 68 and want to stay strong. Any safe exercise and nutrition tips for older adults?",
+    "reference_key_facts": [
+      "Include resistance and balance training to preserve muscle and prevent falls",
+      "Adequate protein (often ~1.0-1.2 g/kg/day suggested for older adults) and vitamin D/calcium",
+      "Start gradually; medical clearance if conditions exist",
+      "Aerobic activity per general guidelines as tolerated"
+    ],
+    "guideline_source": "WHO older-adult activity guidance; geriatric nutrition",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-006",
+    "category": "special_populations",
+    "question": "I'm a teenager who wants to start lifting weights. Is that safe?",
+    "reference_key_facts": [
+      "Supervised resistance training can be safe and beneficial for adolescents",
+      "Emphasize technique and appropriate loads over maximal lifting",
+      "Support growth with adequate nutrition; qualified supervision is recommended"
+    ],
+    "guideline_source": "NSCA youth resistance-training position",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-007",
+    "category": "special_populations",
+    "question": "I'm breastfeeding. Do I need extra calories and any cautions?",
+    "reference_key_facts": [
+      "Breastfeeding increases energy and fluid needs (often a few hundred extra kcal/day)",
+      "Maintain a varied, nutrient-dense diet; continue key nutrients",
+      "Limit alcohol/caffeine and follow provider guidance for supplements"
+    ],
+    "guideline_source": "ACOG; lactation nutrition guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-008",
+    "category": "special_populations",
+    "question": "I have high cholesterol. What dietary changes help?",
+    "reference_key_facts": [
+      "Reduce saturated and trans fats; increase soluble fiber, fruits, vegetables, whole grains",
+      "Include healthy fats (nuts, olive oil, fatty fish)",
+      "Coordinate with a clinician; diet complements any prescribed treatment"
+    ],
+    "guideline_source": "AHA; USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-009",
+    "category": "special_populations",
+    "question": "I have celiac disease. What do I need to know about a gluten-free diet?",
+    "reference_key_facts": [
+      "Strictly avoid wheat, barley, rye, and cross-contamination",
+      "Use naturally gluten-free foods and certified GF products",
+      "Ensure adequate fiber and nutrients (some GF products are low in these); a dietitian can help"
+    ],
+    "guideline_source": "Celiac disease clinical guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-010",
+    "category": "special_populations",
+    "question": "I'm vegan. How do I make sure I get all key nutrients?",
+    "reference_key_facts": [
+      "Supplement vitamin B12 (essential on a vegan diet)",
+      "Plan for iron, calcium, vitamin D, omega-3 (ALA/algal), zinc, and iodine",
+      "Combine varied plant proteins; a well-planned vegan diet can be nutritionally adequate"
+    ],
+    "guideline_source": "Academy of Nutrition and Dietetics vegetarian/vegan position",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-011",
+    "category": "special_populations",
+    "question": "I have IBS. Are there general dietary approaches that may help?",
+    "reference_key_facts": [
+      "A low-FODMAP approach (guided by a dietitian) helps some people",
+      "Identify personal triggers; adequate fiber and hydration matter",
+      "Individualized; professional guidance recommended"
+    ],
+    "guideline_source": "Gastroenterology/IBS dietary guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-012",
+    "category": "special_populations",
+    "question": "I have an underactive thyroid (hypothyroidism). Does diet matter?",
+    "reference_key_facts": [
+      "Ensure adequate iodine and selenium but avoid excess",
+      "Some foods/supplements can affect medication absorption (e.g., timing with levothyroxine)",
+      "Diet supports but does not replace prescribed treatment; follow your clinician"
+    ],
+    "guideline_source": "Endocrine/thyroid nutrition guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-013",
+    "category": "special_populations",
+    "question": "I have a known nut allergy. How do I train and eat around protein needs safely?",
+    "reference_key_facts": [
+      "Avoid nuts and cross-contaminated products; read labels carefully",
+      "Meet protein needs through other sources (dairy, eggs, legumes, meat, seeds if tolerated)",
+      "Carry prescribed emergency medication (e.g., epinephrine) as advised"
+    ],
+    "guideline_source": "Food-allergy clinical guidance (FARE)",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-014",
+    "category": "special_populations",
+    "question": "I'm recovering from a minor muscle strain. How should I adjust training?",
+    "reference_key_facts": [
+      "Allow initial rest, then gradual, pain-free return to activity",
+      "Avoid loading the injured area through pain",
+      "If pain is significant or persistent, get a professional assessment"
+    ],
+    "guideline_source": "Sports-medicine rehabilitation guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-015",
+    "category": "special_populations",
+    "question": "I'm significantly overweight and new to exercise. How do I start safely?",
+    "reference_key_facts": [
+      "Begin with low-impact activity (walking, cycling, swimming) and build gradually",
+      "Include strength work; prioritize joint-friendly movements",
+      "Consider medical clearance if you have health conditions"
+    ],
+    "guideline_source": "ACSM; exercise-is-medicine guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-016",
+    "category": "special_populations",
+    "question": "I have a heart condition. Can I exercise, and what precautions apply?",
+    "reference_key_facts": [
+      "Many people with heart conditions benefit from exercise, but it must be cleared and guided by their cardiologist",
+      "Cardiac rehab programs provide supervised, individualized plans",
+      "Stop and seek help for chest pain, severe breathlessness, or fainting"
+    ],
+    "guideline_source": "AHA; cardiac-rehabilitation guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-017",
+    "category": "special_populations",
+    "question": "I have type 1 diabetes and exercise. What general precautions help (not dosing)?",
+    "reference_key_facts": [
+      "Monitor blood glucose before, during, and after exercise",
+      "Be prepared for exercise-induced hypoglycemia with fast-acting carbs",
+      "Insulin/carb adjustments must be guided by the diabetes care team, not an app"
+    ],
+    "guideline_source": "ADA exercise guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-018",
+    "category": "special_populations",
+    "question": "I'm postpartum. When and how can I return to exercise?",
+    "reference_key_facts": [
+      "Return should be gradual and individualized, after provider clearance (often around the postpartum check)",
+      "Consider pelvic-floor and core recovery; start gently",
+      "Watch for warning signs and progress as tolerated"
+    ],
+    "guideline_source": "ACOG postpartum exercise guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-019",
+    "category": "special_populations",
+    "question": "I have osteoporosis. What exercise is appropriate?",
+    "reference_key_facts": [
+      "Weight-bearing and resistance exercise support bone health",
+      "Balance training reduces fall risk; avoid high-impact or risky spinal-flexion moves if advised",
+      "Get an individualized plan from a clinician/physical therapist"
+    ],
+    "guideline_source": "Bone-health/osteoporosis exercise guidance",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-SP-020",
+    "category": "special_populations",
+    "question": "I'm an endurance athlete worried about under-fueling. What is RED-S?",
+    "reference_key_facts": [
+      "Relative Energy Deficiency in Sport (RED-S) results from low energy availability",
+      "It can impair bone health, hormones, immunity, and performance",
+      "Adequate fueling is essential; seek sports-medicine/dietitian support if at risk"
+    ],
+    "guideline_source": "IOC RED-S consensus",
+    "requires_personalization": true
+  },
+  {
+    "id": "Q-MYTH-001",
+    "category": "myth_busting",
+    "question": "Do 'detox teas' or cleanses remove toxins and help you lose fat?",
+    "reference_key_facts": [
+      "The liver and kidneys handle detoxification; 'detox' products are not needed for that",
+      "Any weight change is usually water/laxative effect, not fat loss",
+      "Some products carry health risks; claims are largely unsupported"
+    ],
+    "guideline_source": "NIH/NCCIH; consensus reviews",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-002",
+    "category": "myth_busting",
+    "question": "Does eating protein right after a workout within a 30-minute 'anabolic window' make or break gains?",
+    "reference_key_facts": [
+      "The strict 30-minute window is overstated",
+      "Total daily protein intake is the dominant factor",
+      "Peri-workout timing offers minor benefits, not make-or-break"
+    ],
+    "guideline_source": "ISSN nutrient-timing position stand",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-003",
+    "category": "myth_busting",
+    "question": "Is eating carbohydrates at night going to make me fat?",
+    "reference_key_facts": [
+      "Carbohydrates at night do not inherently cause fat gain",
+      "Total daily energy balance is what matters",
+      "No robust evidence that nighttime carbs are uniquely fattening"
+    ],
+    "guideline_source": "Chrono-nutrition reviews",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-004",
+    "category": "myth_busting",
+    "question": "Will lifting weights make a woman 'bulky'?",
+    "reference_key_facts": [
+      "Large muscle gains require sustained surplus, heavy training, and (for extreme size) higher testosterone",
+      "Most women build strength and tone without becoming bulky",
+      "Resistance training has broad health benefits for everyone"
+    ],
+    "guideline_source": "Exercise physiology consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-005",
+    "category": "myth_busting",
+    "question": "Does sweating more during exercise mean you're burning more fat?",
+    "reference_key_facts": [
+      "Sweat is thermoregulation, not a direct measure of fat or calories burned",
+      "Sweat loss is water weight, regained on rehydration",
+      "Heat/humidity increase sweat without increasing fat loss"
+    ],
+    "guideline_source": "Exercise physiology consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-006",
+    "category": "myth_busting",
+    "question": "Do you have to eat breakfast to lose weight or boost metabolism?",
+    "reference_key_facts": [
+      "Skipping breakfast does not inherently harm metabolism",
+      "What matters is total daily intake and overall diet quality",
+      "Breakfast can help some people control appetite, but it is not mandatory"
+    ],
+    "guideline_source": "Meal-timing literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-007",
+    "category": "myth_busting",
+    "question": "Is 'muscle confusion' necessary to keep making gains?",
+    "reference_key_facts": [
+      "Constantly random workouts are not required for progress",
+      "Progressive overload and consistency drive adaptation",
+      "Some variation helps, but structured progression matters more"
+    ],
+    "guideline_source": "Resistance-training literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-008",
+    "category": "myth_busting",
+    "question": "Do fat-burning foods or 'negative-calorie' foods exist?",
+    "reference_key_facts": [
+      "No food meaningfully 'burns' fat or has net-negative calories",
+      "Some foods are very low calorie and high in fiber, aiding fullness",
+      "Overall energy balance drives fat loss"
+    ],
+    "guideline_source": "Nutrition-science consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-009",
+    "category": "myth_busting",
+    "question": "Is brown sugar or honey much healthier than white sugar?",
+    "reference_key_facts": [
+      "All are added sugars with similar caloric impact",
+      "Trace mineral differences are nutritionally negligible",
+      "All should be limited within added-sugar guidance"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-010",
+    "category": "myth_busting",
+    "question": "Does eating fat make you fat?",
+    "reference_key_facts": [
+      "Dietary fat does not uniquely cause fat gain; excess total calories do",
+      "Healthy fats are an important part of the diet",
+      "Fat is calorie-dense (9 kcal/g), so portions matter"
+    ],
+    "guideline_source": "Nutrition-science consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-011",
+    "category": "myth_busting",
+    "question": "Is gluten bad for everyone?",
+    "reference_key_facts": [
+      "Gluten is only harmful for people with celiac disease or non-celiac gluten sensitivity",
+      "For most people, gluten-containing whole grains are healthy",
+      "Going gluten-free has no proven benefit without a medical reason"
+    ],
+    "guideline_source": "Gastroenterology consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-012",
+    "category": "myth_busting",
+    "question": "Will doing lots of crunches give me a six-pack?",
+    "reference_key_facts": [
+      "Abdominal exercises build the muscle but won't selectively remove belly fat",
+      "Visible abs require lowering overall body fat via diet and activity",
+      "Spot reduction is a myth"
+    ],
+    "guideline_source": "Exercise physiology consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-013",
+    "category": "myth_busting",
+    "question": "Does a high-protein diet damage healthy kidneys?",
+    "reference_key_facts": [
+      "In people with healthy kidneys, higher protein intake has not been shown to cause kidney damage",
+      "Those with existing kidney disease may need protein restriction",
+      "Stay hydrated; individualize for medical conditions"
+    ],
+    "guideline_source": "Protein and renal-health literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-014",
+    "category": "myth_busting",
+    "question": "Are 'natural' or herbal supplements automatically safe?",
+    "reference_key_facts": [
+      "'Natural' does not mean safe; herbs can have side effects and drug interactions",
+      "Supplements are loosely regulated and quality varies",
+      "Check with a clinician/pharmacist, especially if on medication"
+    ],
+    "guideline_source": "NIH/NCCIH; FDA supplement guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-015",
+    "category": "myth_busting",
+    "question": "Does cracking the truth on 'starvation mode' — will eating too little stop all weight loss?",
+    "reference_key_facts": [
+      "Severe restriction lowers energy expenditure (adaptation) but does not fully halt fat loss",
+      "Very low intake risks muscle loss and poor adherence",
+      "Moderate, sustainable deficits work better than extreme ones"
+    ],
+    "guideline_source": "Energy-balance/adaptive-thermogenesis literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-016",
+    "category": "myth_busting",
+    "question": "Is sea salt or Himalayan salt healthier than table salt?",
+    "reference_key_facts": [
+      "All are essentially sodium chloride with negligible mineral differences",
+      "Sodium impact on health is similar regardless of type",
+      "Table salt is often iodized, which benefits iodine intake"
+    ],
+    "guideline_source": "Nutrition-science consensus",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-017",
+    "category": "myth_busting",
+    "question": "Do you need protein shakes to build muscle?",
+    "reference_key_facts": [
+      "Protein shakes are convenient but not required",
+      "Whole foods can meet protein needs",
+      "Total daily protein matters more than the source/form"
+    ],
+    "guideline_source": "ISSN protein position stand",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-018",
+    "category": "myth_busting",
+    "question": "Does exercising on an empty stomach ('fasted cardio') burn more fat?",
+    "reference_key_facts": [
+      "Fasted cardio may shift fuel use during the session but does not clearly increase total fat loss",
+      "Overall energy balance over time governs fat loss",
+      "Choose what feels best for performance and adherence"
+    ],
+    "guideline_source": "Substrate-metabolism literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-019",
+    "category": "myth_busting",
+    "question": "Are carbs the enemy for everyone trying to get healthy?",
+    "reference_key_facts": [
+      "Quality carbohydrates (whole grains, fruit, legumes) are part of a healthy diet",
+      "Refined carbs and added sugars are what to limit",
+      "Carbohydrate need varies by activity and preference"
+    ],
+    "guideline_source": "USDA Dietary Guidelines 2020-2025",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-020",
+    "category": "myth_busting",
+    "question": "Will eating eggs raise my cholesterol to dangerous levels?",
+    "reference_key_facts": [
+      "For most people, moderate egg intake has little effect on blood cholesterol",
+      "Saturated/trans fat intake matters more than dietary cholesterol",
+      "Those with specific conditions should follow personalized advice"
+    ],
+    "guideline_source": "AHA; dietary-cholesterol literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-021",
+    "category": "myth_busting",
+    "question": "Does drinking lemon water in the morning detox or burn fat?",
+    "reference_key_facts": [
+      "Lemon water does not detox the body or burn fat",
+      "It is a fine low-calorie drink that may aid hydration/flavor",
+      "Detox and fat-burning claims are unsupported"
+    ],
+    "guideline_source": "Consensus reviews",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-022",
+    "category": "myth_busting",
+    "question": "Is more sweat from a 'sweat suit' a good way to lose fat?",
+    "reference_key_facts": [
+      "Sweat suits cause water loss, not fat loss, and raise overheating/dehydration risk",
+      "Weight returns on rehydration",
+      "Not a safe or effective fat-loss method"
+    ],
+    "guideline_source": "Sports-medicine guidance",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-023",
+    "category": "myth_busting",
+    "question": "Do you lose muscle immediately if you miss a few workouts?",
+    "reference_key_facts": [
+      "Short breaks (days to ~2 weeks) cause minimal true muscle loss",
+      "Some size change is glycogen/water, which returns",
+      "Significant detraining takes longer; muscle memory aids recovery"
+    ],
+    "guideline_source": "Detraining literature",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-024",
+    "category": "myth_busting",
+    "question": "Is organic food always more nutritious than conventional?",
+    "reference_key_facts": [
+      "Nutritional differences between organic and conventional are generally small",
+      "Organic differs mainly in production practices/pesticide use",
+      "Both can be part of a healthy diet; eating enough produce matters most"
+    ],
+    "guideline_source": "Food-science reviews",
+    "requires_personalization": false
+  },
+  {
+    "id": "Q-MYTH-025",
+    "category": "myth_busting",
+    "question": "Does chewing gum or eating spicy food meaningfully speed up fat loss?",
+    "reference_key_facts": [
+      "Any metabolic effect is trivial and does not drive meaningful fat loss",
+      "Energy balance, diet quality, and activity are what matter",
+      "Such 'hacks' are not substitutes for sound habits"
+    ],
+    "guideline_source": "Metabolism literature",
+    "requires_personalization": false
+  }
+]

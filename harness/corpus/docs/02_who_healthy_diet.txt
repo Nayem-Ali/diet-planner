@@ -1,0 +1,36 @@
+@meta
+source: WHO Healthy Diet & Sodium Reduction guidance
+publisher: World Health Organization
+year: 2020
+url: https://www.who.int/news-room/fact-sheets/detail/healthy-diet
+@end
+
+[[section: Free sugars]]
+Keep intake of free sugars to less than 10 percent of total energy intake (a
+strong recommendation). A further reduction to below 5 percent of total energy
+intake provides additional health benefits, including reduced dental caries
+(conditional recommendation). Free sugars include monosaccharides and
+disaccharides added to foods, plus sugars naturally present in honey, syrups, and
+fruit juices.
+
+[[section: Sodium]]
+Adults should consume less than 2,000 mg of sodium per day, equivalent to less
+than 5 grams of salt (about one teaspoon) per day. Reducing sodium intake lowers
+blood pressure and the risk of cardiovascular disease, stroke, and coronary heart
+disease. (Source: WHO Sodium Reduction fact sheet,
+https://www.who.int/news-room/fact-sheets/detail/sodium-reduction)
+
+[[section: Potassium]]
+Adults should consume at least 3,510 mg of potassium per day (90 mmol/day) from
+food, which helps lower blood pressure and cardiovascular risk. Fruits and
+vegetables are key sources.
+
+[[section: Fruit and vegetables]]
+Eat at least 400 grams of fruit and vegetables per day (five portions), excluding
+starchy roots such as potatoes, to reduce the risk of noncommunicable disease and
+ensure adequate fibre intake.
+
+[[section: Total and saturated fat]]
+Keep total fat to no more than 30 percent of total energy intake, with saturated
+fats below 10 percent and trans fats below 1 percent of total energy intake;
+shift consumption toward unsaturated fats.

@@ -1,0 +1,10 @@
+# The mock/dry-run path uses only the Python standard library -- nothing to install.
+# Install these only for a REAL run (model calls, real retrieval, LLM judge):
+
+# anthropic>=0.39        # AnthropicModel / judge
+# openai>=1.40           # OpenAIModel / judge
+# transformers>=4.44     # local open-weight models (Llama/Mistral/Gemma/Qwen)
+# torch                  # backend for transformers
+# sentence-transformers  # embeddings for retrieval
+# faiss-cpu              # vector store for RAG corpus
+# scipy                  # optional: exact significance tests (Wilcoxon)

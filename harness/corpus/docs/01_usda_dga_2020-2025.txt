@@ -1,0 +1,37 @@
+@meta
+source: USDA Dietary Guidelines for Americans, 2020-2025 (9th ed.)
+publisher: U.S. Department of Agriculture & U.S. Department of Health and Human Services
+year: 2020
+url: https://www.dietaryguidelines.gov/sites/default/files/2020-12/Dietary_Guidelines_for_Americans_2020-2025.pdf
+@end
+
+[[section: Metabolizable energy (Atwater) factors]]
+Metabolizable energy is estimated with the general Atwater factors: protein
+provides about 4 kcal per gram, carbohydrate about 4 kcal per gram, total fat
+about 9 kcal per gram, and alcohol (ethanol) about 7 kcal per gram. These
+factors are the standard basis for energy values in U.S. food composition data
+(USDA FoodData Central) and for calorie totals in diet-planning tools.
+
+[[section: Added sugars]]
+Limit added sugars to less than 10 percent of total daily calories, starting at
+age 2. Added sugars are sugars added during processing or preparation; naturally
+occurring sugars in intact fruits, vegetables, and plain dairy are not counted.
+
+[[section: Saturated fat]]
+Limit saturated fat to less than 10 percent of total daily calories, starting at
+age 2, replacing it with unsaturated fats where possible.
+
+[[section: Sodium]]
+Limit sodium to less than 2,300 mg per day for most adults and children age 14
+and older (about one teaspoon of table salt). This is the U.S. dietary-guidelines
+upper limit; the World Health Organization sets a lower target (see WHO source).
+
+[[section: Alcohol]]
+For adults who choose to drink, limit intake to 2 drinks or less per day for men
+and 1 drink or less per day for women. Drinking less is better for health than
+drinking more; some adults should not drink at all.
+
+[[section: Dietary pattern]]
+Follow a healthy dietary pattern across life stages: emphasize vegetables,
+fruits, whole grains, fat-free or low-fat dairy, a variety of protein foods, and
+oils, while limiting added sugars, saturated fat, sodium, and alcoholic beverages.

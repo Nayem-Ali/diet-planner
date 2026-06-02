@@ -1,0 +1,31 @@
+@meta
+source: ACOG Nutrition During Pregnancy (with IOM energy/iron and CDC folate guidance)
+publisher: American College of Obstetricians and Gynecologists
+year: 2023
+url: https://www.acog.org/womens-health/faqs/nutrition-during-pregnancy
+@end
+
+[[section: Energy in pregnancy]]
+Energy needs do not increase in the first trimester (about 0 additional kcal/day).
+Estimated additional energy is about 340 kcal per day in the second trimester and
+about 452 kcal per day in the third trimester (IOM estimates).
+
+[[section: Folic acid]]
+During pregnancy, aim for 600 micrograms of folic acid per day. Because this is
+hard to reach from food alone, take a prenatal vitamin with at least 400
+micrograms of folic acid daily, starting at least 1 month before pregnancy and
+through the first 12 weeks, to reduce the risk of neural tube defects.
+
+[[section: Iron]]
+Pregnant women need about 27 mg of iron per day to support expanded maternal
+blood volume and fetal development, typically provided through prenatal vitamins.
+
+[[section: Caffeine]]
+Limit caffeine to less than 200 mg per day during pregnancy (roughly one 12-oz cup
+of coffee).
+
+[[section: Foods to avoid]]
+Avoid unpasteurized milk and soft cheeses, raw or undercooked seafood/meat/eggs,
+and unheated deli meats and hot dogs, because of Listeria and other foodborne
+risks. Limit high-mercury fish (shark, swordfish, king mackerel, tilefish) and
+choose lower-mercury fish in moderation.

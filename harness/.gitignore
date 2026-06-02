@@ -1,0 +1,10 @@
+# Never commit secrets or local run artifacts
+.env
+.env.example
+*.key
+out/
+corpus/index/
+__pycache__/
+*.pyc
+.venv/
+venv/

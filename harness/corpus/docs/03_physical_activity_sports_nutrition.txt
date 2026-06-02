@@ -1,0 +1,39 @@
+@meta
+source: WHO Physical Activity Guidelines (2020) & ACSM/ISSN sports-nutrition position stands
+publisher: World Health Organization; American College of Sports Medicine; International Society of Sports Nutrition
+year: 2020
+url: https://www.who.int/publications/i/item/9789240015128
+@end
+
+[[section: Aerobic activity]]
+Adults should do at least 150 to 300 minutes of moderate-intensity aerobic
+physical activity per week, or 75 to 150 minutes of vigorous-intensity aerobic
+activity, or an equivalent combination. Additional benefits accrue beyond 300
+minutes of moderate activity.
+
+[[section: Muscle strengthening]]
+Adults should do muscle-strengthening activities involving all major muscle
+groups on 2 or more days per week, as these provide additional health benefits.
+
+[[section: Carbohydrate for training]]
+Daily carbohydrate needs scale with training volume (ACSM/ISSN): light training
+about 3 to 5 g/kg body weight/day; moderate (~1 h/day) 5 to 7 g/kg/day; moderate
+to high endurance (1 to 3 h/day) 6 to 10 g/kg/day; very high volume (4 to 5 h/day)
+8 to 12 g/kg/day. After hard exercise, carbohydrate plus protein supports glycogen
+repletion.
+
+[[section: Protein for training]]
+Protein recommendations (ISSN/ACSM): the general adult RDA is 0.8 g/kg/day;
+endurance athletes about 1.2 to 1.4 g/kg/day; for building and maintaining muscle,
+1.4 to 2.0 g/kg/day (commonly cited up to ~2.2 g/kg/day). To maximize muscle
+protein synthesis, distribute protein as roughly 20 to 40 g doses every 3 to 4
+hours, including after exercise. During energy restriction, higher protein intakes
+help preserve lean mass.
+
+[[section: Exercise hydration]]
+Prehydrate by drinking about 5 to 7 mL/kg body weight at least 4 hours before
+exercise. During exercise, drink to limit body-mass loss to under 2 percent; for
+sessions over 60 minutes, fluids containing sodium (about 0.5 to 0.7 g/L) and
+carbohydrate help sustain performance and reduce hyponatremia risk. After
+exercise, replace each kilogram of body mass lost with about 1.25 to 1.5 L of
+fluid.
