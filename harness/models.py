@@ -153,6 +153,36 @@ class OpenAIModel:
                          u.prompt_tokens, u.completion_tokens, dt)
 
 
+class DeepSeekModel:
+    """DeepSeek via its OpenAI-compatible API (cheap; far below Anthropic rates).
+
+    Requires `pip install openai` and DEEPSEEK_API_KEY. Common model names:
+    'deepseek-chat' (V3) and 'deepseek-reasoner' (R1; emits long reasoning, so
+    it costs more tokens and is slower -- prefer deepseek-chat as a judge).
+    """
+
+    def __init__(self, name: str = "deepseek-chat"):
+        self.name = name
+        from openai import OpenAI
+        self._client = OpenAI(
+            api_key=os.environ["DEEPSEEK_API_KEY"],
+            base_url="https://api.deepseek.com",
+        )
+
+    def generate(self, prompt: str) -> GenResult:
+        import time
+        t0 = time.time()
+        r = self._client.chat.completions.create(
+            model=self.name,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=1024,
+        )
+        dt = (time.time() - t0) * 1000
+        u = r.usage
+        return GenResult(r.choices[0].message.content or "",
+                         u.prompt_tokens, u.completion_tokens, dt)
+
+
 class LocalHFModel:
     """Open-weight chat model via HuggingFace transformers (runs on local GPU).
 
@@ -189,13 +219,28 @@ class LocalHFModel:
         text = self._tok.decode(gen, skip_special_tokens=True)
         return GenResult(text, int(inputs.shape[1]), int(gen.shape[0]), dt)
 
+    def close(self):
+        """Free GPU memory so the next model (or the judge) can load. Used by
+        run.py --two-pass to keep peak VRAM at a single model on a free T4."""
+        import gc
+        for attr in ("_model", "_tok"):
+            if hasattr(self, attr):
+                delattr(self, attr)
+        gc.collect()
+        try:
+            self._torch.cuda.empty_cache()
+        except Exception:
+            pass
+
 
 def get_model(spec: str) -> ModelClient:
     """spec forms:
         'mock:<name>:<competence>'        e.g. mock:weak:0.4
         'anthropic:<model>'               e.g. anthropic:claude-sonnet-4-6
         'openai:<model>'
+        'deepseek:<model>'                e.g. deepseek:deepseek-chat
         'hf:<org/model>'                  e.g. hf:meta-llama/Llama-3.1-8B-Instruct
+                                          (incl. hf:deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
     """
     parts = spec.split(":")
     kind = parts[0]
@@ -207,6 +252,8 @@ def get_model(spec: str) -> ModelClient:
         return AnthropicModel(parts[1])
     if kind == "openai":
         return OpenAIModel(parts[1])
+    if kind == "deepseek":
+        return DeepSeekModel(parts[1] if len(parts) > 1 else "deepseek-chat")
     if kind == "hf":
         # rejoin in case the org/model contains no extra colons
         return LocalHFModel(":".join(parts[1:]))

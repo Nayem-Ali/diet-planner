@@ -52,6 +52,63 @@ def build_retriever(quality_items, mock: bool):
     return NullRetriever()
 
 
+def _generate_for_model(model, quality, redteam, retriever):
+    """Generate (unscored) responses for every condition x item, one model."""
+    recs = []
+    for cond in CONDITIONS:
+        for item in quality:
+            prompt = build_quality_prompt(item, cond, retriever)
+            r = model.generate(prompt)
+            recs.append(dict(set="quality", model=model.name, condition=cond.name,
+                             item=item.id, prompt=prompt, response=r.text,
+                             latency_ms=round(r.latency_ms, 1),
+                             tokens=r.prompt_tokens + r.completion_tokens))
+        for item in redteam:
+            prompt = build_redteam_prompt(item, cond, retriever)
+            r = model.generate(prompt)
+            recs.append(dict(set="safety", model=model.name, condition=cond.name,
+                             item=item.id, prompt=prompt, response=r.text,
+                             latency_ms=round(r.latency_ms, 1),
+                             tokens=r.prompt_tokens + r.completion_tokens))
+    return recs
+
+
+def _score(raw, judge_model, q_by_id, s_by_id):
+    """Score raw generations with the judge (or heuristic) -> rows + gen records."""
+    q_rows, s_rows, gens = [], [], []
+    for rec in raw:
+        if rec["set"] == "quality":
+            item = q_by_id[rec["item"]]
+            sc = (judge_quality(judge_model, item, rec["response"])
+                  if judge_model else score_quality_heuristic(item, rec["response"]))
+            q_rows.append(dict(
+                model=rec["model"], condition=rec["condition"], item=item.id,
+                category=item.category, coverage=round(sc.coverage, 4),
+                n_covered=sc.n_covered, n_facts=sc.n_facts, cited=int(sc.cited),
+                grounded=round(sc.grounded_proxy, 4),
+                latency_ms=rec["latency_ms"], tokens=rec["tokens"]))
+            gens.append(dict(
+                set="quality", model=rec["model"], condition=rec["condition"],
+                item=item.id, category=item.category, prompt=rec["prompt"],
+                response=rec["response"], coverage=round(sc.coverage, 4),
+                grounded=round(sc.grounded_proxy, 4), cited=int(sc.cited)))
+        else:
+            item = s_by_id[rec["item"]]
+            sc = (judge_safety(judge_model, item, rec["response"])
+                  if judge_model else score_safety_heuristic(item, rec["response"]))
+            s_rows.append(dict(
+                model=rec["model"], condition=rec["condition"], item=item.id,
+                harm_class=item.harm_class, severity=item.severity,
+                violation=int(sc.is_violation),
+                latency_ms=rec["latency_ms"], tokens=rec["tokens"]))
+            gens.append(dict(
+                set="safety", model=rec["model"], condition=rec["condition"],
+                item=item.id, harm_class=item.harm_class, severity=item.severity,
+                prompt=rec["prompt"], response=rec["response"],
+                violation=int(sc.is_violation)))
+    return q_rows, s_rows, gens
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--models", nargs="+",
@@ -76,6 +133,11 @@ def main():
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--no-generations", action="store_true",
                     help="skip writing generations.jsonl (raw prompts+responses)")
+    ap.add_argument("--two-pass", action="store_true",
+                    help="generate all responses freeing each model before the "
+                         "next, then load the judge last. Keeps peak VRAM at one "
+                         "model so a free T4 can run open-weight tests + an "
+                         "open-weight judge without OOM.")
     args = ap.parse_args()
 
     mock_mode = all(m.startswith("mock:") for m in args.models)
@@ -90,57 +152,23 @@ def main():
     retriever = build_retriever(quality, mock=mock_mode)
     os.makedirs(args.out_dir, exist_ok=True)
 
-    judge_model = get_model(args.judge) if args.judge else None
-    if judge_model:
-        print(f"Using LLM judge: {judge_model.name}", file=sys.stderr)
-    else:
-        print("Using heuristic scorer (no --judge given).", file=sys.stderr)
+    q_by_id = {q.id: q for q in quality}
+    s_by_id = {r.id: r for r in redteam}
 
-    q_rows, s_rows, gens = [], [], []
+    # Phase 1: generate (one model at a time; freed between models in --two-pass).
+    raw = []
     for spec in args.models:
         model = get_model(spec)
-        for cond in CONDITIONS:
-            for item in quality:
-                prompt = build_quality_prompt(item, cond, retriever)
-                r = model.generate(prompt)
-                sc = (judge_quality(judge_model, item, r.text)
-                      if judge_model else score_quality_heuristic(item, r.text))
-                q_rows.append(dict(
-                    model=model.name, condition=cond.name, item=item.id,
-                    category=item.category,
-                    coverage=round(sc.coverage, 4),
-                    n_covered=sc.n_covered, n_facts=sc.n_facts,
-                    cited=int(sc.cited),
-                    grounded=round(sc.grounded_proxy, 4),
-                    latency_ms=round(r.latency_ms, 1),
-                    tokens=r.prompt_tokens + r.completion_tokens,
-                ))
-                gens.append(dict(
-                    set="quality", model=model.name, condition=cond.name,
-                    item=item.id, category=item.category,
-                    prompt=prompt, response=r.text,
-                    coverage=round(sc.coverage, 4),
-                    grounded=round(sc.grounded_proxy, 4), cited=int(sc.cited),
-                ))
-            for item in redteam:
-                prompt = build_redteam_prompt(item, cond, retriever)
-                r = model.generate(prompt)
-                sc = (judge_safety(judge_model, item, r.text)
-                      if judge_model else score_safety_heuristic(item, r.text))
-                s_rows.append(dict(
-                    model=model.name, condition=cond.name, item=item.id,
-                    harm_class=item.harm_class, severity=item.severity,
-                    violation=int(sc.is_violation),
-                    latency_ms=round(r.latency_ms, 1),
-                    tokens=r.prompt_tokens + r.completion_tokens,
-                ))
-                gens.append(dict(
-                    set="safety", model=model.name, condition=cond.name,
-                    item=item.id, harm_class=item.harm_class,
-                    severity=item.severity,
-                    prompt=prompt, response=r.text,
-                    violation=int(sc.is_violation),
-                ))
+        print(f"[generate] {model.name}", file=sys.stderr)
+        raw.extend(_generate_for_model(model, quality, redteam, retriever))
+        if args.two_pass:
+            getattr(model, "close", lambda: None)()
+
+    # Phase 2: judge (loaded only now, so --two-pass peaks at one model in VRAM).
+    judge_model = get_model(args.judge) if args.judge else None
+    print(f"[judge] {judge_model.name}" if judge_model
+          else "[judge] heuristic scorer (no --judge)", file=sys.stderr)
+    q_rows, s_rows, gens = _score(raw, judge_model, q_by_id, s_by_id)
 
     _write_csv(os.path.join(args.out_dir, "quality_rows.csv"), q_rows)
     _write_csv(os.path.join(args.out_dir, "safety_rows.csv"), s_rows)
