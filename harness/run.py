@@ -27,7 +27,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from conditions import CONDITIONS, build_quality_prompt, build_redteam_prompt
-from datasets import load_quality, load_redteam
+from benchmark_data import load_quality, load_redteam
 from judge import (judge_quality, judge_safety,
                    score_quality_heuristic, score_safety_heuristic)
 from metrics import (bootstrap_ci, mean, severity_weighted_violation_rate)

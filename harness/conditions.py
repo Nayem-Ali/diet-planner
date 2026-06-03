@@ -13,7 +13,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Optional
 
-from datasets import QualityItem, RedTeamItem
+from benchmark_data import QualityItem, RedTeamItem
 from retrieval import Passage, Retriever
 
 

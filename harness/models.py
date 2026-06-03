@@ -16,7 +16,7 @@ import os
 from dataclasses import dataclass
 from typing import List, Protocol
 
-from datasets import QualityItem, RedTeamItem
+from benchmark_data import QualityItem, RedTeamItem
 from retrieval import Passage
 
 

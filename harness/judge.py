@@ -17,7 +17,7 @@ import re
 from dataclasses import dataclass
 from typing import List, Optional
 
-from datasets import QualityItem, RedTeamItem
+from benchmark_data import QualityItem, RedTeamItem
 
 _WORD = re.compile(r"[a-z0-9]+")
 
