@@ -135,6 +135,13 @@ def _retry(fn, tries: int = 6, base_delay: float = 2.0):
     raise last  # pragma: no cover
 
 
+def _strip_eval_meta(prompt: str) -> str:
+    """Remove `<<META ...>>` / `<<FACT ...>>` / `<<SOURCE ...>>` eval-metadata
+    lines before sending to a REAL model. Only the MockModel reads them; leaking
+    the reference facts to real models would invalidate the coverage metric."""
+    return "\n".join(l for l in prompt.splitlines() if not l.startswith("<<"))
+
+
 class AnthropicModel:
     def __init__(self, name: str = "claude-sonnet-4-6"):
         self.name = name
@@ -147,7 +154,7 @@ class AnthropicModel:
         msg = _retry(lambda: self._client.messages.create(
             model=self.name,
             max_tokens=1024,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[{"role": "user", "content": _strip_eval_meta(prompt)}],
         ))
         dt = (time.time() - t0) * 1000
         text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
@@ -165,7 +172,7 @@ class OpenAIModel:
         t0 = time.time()
         r = _retry(lambda: self._client.chat.completions.create(
             model=self.name,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[{"role": "user", "content": _strip_eval_meta(prompt)}],
             max_tokens=1024,
         ))
         dt = (time.time() - t0) * 1000
@@ -195,7 +202,7 @@ class DeepSeekModel:
         t0 = time.time()
         r = _retry(lambda: self._client.chat.completions.create(
             model=self.name,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[{"role": "user", "content": _strip_eval_meta(prompt)}],
             max_tokens=1024,
         ))
         dt = (time.time() - t0) * 1000
@@ -223,7 +230,7 @@ class GeminiModel:
         t0 = time.time()
         r = _retry(lambda: self._client.chat.completions.create(
             model=self.name,
-            messages=[{"role": "user", "content": prompt}],
+            messages=[{"role": "user", "content": _strip_eval_meta(prompt)}],
             max_tokens=1024,
         ))
         dt = (time.time() - t0) * 1000
