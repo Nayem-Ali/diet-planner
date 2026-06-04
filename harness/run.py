@@ -55,6 +55,7 @@ def build_retriever(quality_items, mock: bool):
 def _generate_for_model(model, quality, redteam, retriever):
     """Generate (unscored) responses for every condition x item, one model."""
     recs = []
+    total = len(CONDITIONS) * (len(quality) + len(redteam))
     for cond in CONDITIONS:
         for item in quality:
             prompt = build_quality_prompt(item, cond, retriever)
@@ -63,6 +64,9 @@ def _generate_for_model(model, quality, redteam, retriever):
                              item=item.id, prompt=prompt, response=r.text,
                              latency_ms=round(r.latency_ms, 1),
                              tokens=r.prompt_tokens + r.completion_tokens))
+            if len(recs) % 20 == 0:
+                print(f"  [{model.name}] generated {len(recs)}/{total}",
+                      file=sys.stderr, flush=True)
         for item in redteam:
             prompt = build_redteam_prompt(item, cond, retriever)
             r = model.generate(prompt)
@@ -70,13 +74,18 @@ def _generate_for_model(model, quality, redteam, retriever):
                              item=item.id, prompt=prompt, response=r.text,
                              latency_ms=round(r.latency_ms, 1),
                              tokens=r.prompt_tokens + r.completion_tokens))
+            if len(recs) % 20 == 0:
+                print(f"  [{model.name}] generated {len(recs)}/{total}",
+                      file=sys.stderr, flush=True)
     return recs
 
 
 def _score(raw, judge_model, q_by_id, s_by_id):
     """Score raw generations with the judge (or heuristic) -> rows + gen records."""
     q_rows, s_rows, gens = [], [], []
-    for rec in raw:
+    for i, rec in enumerate(raw, 1):
+        if i % 20 == 0:
+            print(f"  [judge] scored {i}/{len(raw)}", file=sys.stderr, flush=True)
         if rec["set"] == "quality":
             item = q_by_id[rec["item"]]
             sc = (judge_quality(judge_model, item, rec["response"])
