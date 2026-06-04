@@ -22,9 +22,42 @@ import csv
 import json
 import os
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor
 
 # Allow running as a plain script (`python3 run.py`) without package install.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+
+def _pmap(fn, items, workers, label=""):
+    """Map fn over items, preserving order, with `workers` threads (great for
+    I/O-bound API calls). workers<=1 runs sequentially. Prints progress."""
+    items = list(items)
+    n = len(items)
+    if workers <= 1:
+        out = []
+        for k, x in enumerate(items, 1):
+            out.append(fn(x))
+            if label and k % 20 == 0:
+                print(f"  {label} {k}/{n}", file=sys.stderr, flush=True)
+        return out
+    results = [None] * n
+    done = [0]
+    lock = threading.Lock()
+
+    def work(pair):
+        i, x = pair
+        r = fn(x)
+        with lock:
+            done[0] += 1
+            if label and done[0] % 20 == 0:
+                print(f"  {label} {done[0]}/{n}", file=sys.stderr, flush=True)
+        return i, r
+
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        for i, r in ex.map(work, enumerate(items)):
+            results[i] = r
+    return results
 
 from conditions import CONDITIONS, build_quality_prompt, build_redteam_prompt
 from benchmark_data import load_quality, load_redteam
@@ -52,11 +85,11 @@ def build_retriever(quality_items, mock: bool):
     return NullRetriever()
 
 
-def _generate_for_model(model, quality, redteam, retriever):
+def _generate_for_model(model, quality, redteam, retriever, concurrency=1):
     """Generate (unscored) responses for every condition x item, one model.
 
-    If the model exposes generate_batch (local GPU models), prompts are batched
-    (~10x faster). API models fall back to one-at-a-time."""
+    Local GPU models (generate_batch) are batched; API models run with
+    `concurrency` parallel threads (~10x faster for I/O-bound API calls)."""
     # Build every (kind, condition, item, prompt) up front.
     jobs = []
     for cond in CONDITIONS:
@@ -67,17 +100,12 @@ def _generate_for_model(model, quality, redteam, retriever):
             jobs.append(("safety", cond, item,
                          build_redteam_prompt(item, cond, retriever)))
     prompts = [j[3] for j in jobs]
-    total = len(jobs)
 
     if hasattr(model, "generate_batch"):
         results = model.generate_batch(prompts)        # batched, prints progress
     else:
-        results = []
-        for k, p in enumerate(prompts, 1):
-            results.append(model.generate(p))
-            if k % 20 == 0:
-                print(f"  [{model.name}] generated {k}/{total}",
-                      file=sys.stderr, flush=True)
+        results = _pmap(model.generate, prompts, concurrency,
+                        label=f"[{model.name}] generated")
 
     recs = []
     for (kind, cond, item, prompt), r in zip(jobs, results):
@@ -88,39 +116,45 @@ def _generate_for_model(model, quality, redteam, retriever):
     return recs
 
 
-def _score(raw, judge_model, q_by_id, s_by_id):
-    """Score raw generations with the judge (or heuristic) -> rows + gen records."""
-    q_rows, s_rows, gens = [], [], []
-    for i, rec in enumerate(raw, 1):
-        if i % 20 == 0:
-            print(f"  [judge] scored {i}/{len(raw)}", file=sys.stderr, flush=True)
+def _score(raw, judge_model, q_by_id, s_by_id, concurrency=1):
+    """Score raw generations with the judge (or heuristic) -> rows + gen records.
+    Judge calls run with `concurrency` parallel threads."""
+    def score_one(rec):
         if rec["set"] == "quality":
             item = q_by_id[rec["item"]]
-            sc = (judge_quality(judge_model, item, rec["response"])
-                  if judge_model else score_quality_heuristic(item, rec["response"]))
+            return (judge_quality(judge_model, item, rec["response"])
+                    if judge_model else score_quality_heuristic(item, rec["response"]))
+        item = s_by_id[rec["item"]]
+        return (judge_safety(judge_model, item, rec["response"])
+                if judge_model else score_safety_heuristic(item, rec["response"]))
+
+    scores = _pmap(score_one, raw, concurrency, label="[judge] scored")
+
+    q_rows, s_rows, gens = [], [], []
+    for rec, sc in zip(raw, scores):
+        if rec["set"] == "quality":
             q_rows.append(dict(
-                model=rec["model"], condition=rec["condition"], item=item.id,
-                category=item.category, coverage=round(sc.coverage, 4),
+                model=rec["model"], condition=rec["condition"], item=rec["item"],
+                category=q_by_id[rec["item"]].category, coverage=round(sc.coverage, 4),
                 n_covered=sc.n_covered, n_facts=sc.n_facts, cited=int(sc.cited),
                 grounded=round(sc.grounded_proxy, 4),
                 latency_ms=rec["latency_ms"], tokens=rec["tokens"]))
             gens.append(dict(
                 set="quality", model=rec["model"], condition=rec["condition"],
-                item=item.id, category=item.category, prompt=rec["prompt"],
-                response=rec["response"], coverage=round(sc.coverage, 4),
+                item=rec["item"], category=q_by_id[rec["item"]].category,
+                prompt=rec["prompt"], response=rec["response"],
+                coverage=round(sc.coverage, 4),
                 grounded=round(sc.grounded_proxy, 4), cited=int(sc.cited)))
         else:
             item = s_by_id[rec["item"]]
-            sc = (judge_safety(judge_model, item, rec["response"])
-                  if judge_model else score_safety_heuristic(item, rec["response"]))
             s_rows.append(dict(
-                model=rec["model"], condition=rec["condition"], item=item.id,
+                model=rec["model"], condition=rec["condition"], item=rec["item"],
                 harm_class=item.harm_class, severity=item.severity,
                 violation=int(sc.is_violation),
                 latency_ms=rec["latency_ms"], tokens=rec["tokens"]))
             gens.append(dict(
                 set="safety", model=rec["model"], condition=rec["condition"],
-                item=item.id, harm_class=item.harm_class, severity=item.severity,
+                item=rec["item"], harm_class=item.harm_class, severity=item.severity,
                 prompt=rec["prompt"], response=rec["response"],
                 violation=int(sc.is_violation)))
     return q_rows, s_rows, gens
@@ -155,6 +189,10 @@ def main():
                          "next, then load the judge last. Keeps peak VRAM at one "
                          "model so a free T4 can run open-weight tests + an "
                          "open-weight judge without OOM.")
+    ap.add_argument("--concurrency", type=int, default=1,
+                    help="parallel threads for API calls (generation + judge). "
+                         "8-16 makes API-only runs ~10x faster. Keep at 1 for "
+                         "local GPU (hf:) models.")
     args = ap.parse_args()
 
     mock_mode = all(m.startswith("mock:") for m in args.models)
@@ -177,7 +215,8 @@ def main():
     for spec in args.models:
         model = get_model(spec)
         print(f"[generate] {model.name}", file=sys.stderr)
-        raw.extend(_generate_for_model(model, quality, redteam, retriever))
+        raw.extend(_generate_for_model(model, quality, redteam, retriever,
+                                       concurrency=args.concurrency))
         if args.two_pass:
             getattr(model, "close", lambda: None)()
 
@@ -185,7 +224,8 @@ def main():
     judge_model = get_model(args.judge) if args.judge else None
     print(f"[judge] {judge_model.name}" if judge_model
           else "[judge] heuristic scorer (no --judge)", file=sys.stderr)
-    q_rows, s_rows, gens = _score(raw, judge_model, q_by_id, s_by_id)
+    q_rows, s_rows, gens = _score(raw, judge_model, q_by_id, s_by_id,
+                                  concurrency=args.concurrency)
 
     _write_csv(os.path.join(args.out_dir, "quality_rows.csv"), q_rows)
     _write_csv(os.path.join(args.out_dir, "safety_rows.csv"), s_rows)
