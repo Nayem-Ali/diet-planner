@@ -259,21 +259,25 @@ class LocalHFModel:
 
     def generate(self, prompt: str) -> GenResult:
         import time
-        # Strip the eval-metadata header lines before sending to a real model.
-        clean = "\n".join(l for l in prompt.splitlines()
-                          if not l.startswith("<<"))
+        clean = _strip_eval_meta(prompt)  # drop <<META>>/<<FACT>> eval lines
         messages = [{"role": "user", "content": clean}]
-        inputs = self._tok.apply_chat_template(
-            messages, add_generation_prompt=True, return_tensors="pt"
+        # return_dict=True -> a BatchEncoding {input_ids, attention_mask}; pass it
+        # with **enc to generate(). (return_tensors-only changed shape across
+        # transformers versions and broke `.shape` access.)
+        enc = self._tok.apply_chat_template(
+            messages, add_generation_prompt=True,
+            return_tensors="pt", return_dict=True,
         ).to(self._model.device)
+        n_in = int(enc["input_ids"].shape[1])
         t0 = time.time()
         with self._torch.no_grad():
             out = self._model.generate(
-                inputs, max_new_tokens=self.max_new_tokens, do_sample=False)
+                **enc, max_new_tokens=self.max_new_tokens, do_sample=False,
+                pad_token_id=self._tok.eos_token_id)
         dt = (time.time() - t0) * 1000
-        gen = out[0][inputs.shape[1]:]
+        gen = out[0][n_in:]
         text = self._tok.decode(gen, skip_special_tokens=True)
-        return GenResult(text, int(inputs.shape[1]), int(gen.shape[0]), dt)
+        return GenResult(text, n_in, int(gen.shape[0]), dt)
 
     def close(self):
         """Free GPU memory so the next model (or the judge) can load. Used by
