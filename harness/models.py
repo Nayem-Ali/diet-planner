@@ -247,15 +247,25 @@ class LocalHFModel:
     same generate() signature.
     """
 
-    def __init__(self, model_id: str, max_new_tokens: int = 512):
+    def __init__(self, model_id: str, max_new_tokens: int = 512,
+                 load_4bit: bool = False):
         self.name = model_id.split("/")[-1]
         self.max_new_tokens = max_new_tokens
         import torch  # noqa: F401
         from transformers import AutoModelForCausalLM, AutoTokenizer
         self._torch = torch
         self._tok = AutoTokenizer.from_pretrained(model_id)
-        self._model = AutoModelForCausalLM.from_pretrained(
-            model_id, torch_dtype="auto", device_map="auto")
+        kwargs = dict(device_map="auto")
+        if load_4bit:
+            # 4-bit (nf4) keeps a 7-8B model ~5 GB so it fits a T4 fully on-GPU
+            # (no CPU offload) -> batching is fast. Requires `pip install bitsandbytes`.
+            from transformers import BitsAndBytesConfig
+            kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True, bnb_4bit_quant_type="nf4",
+                bnb_4bit_compute_dtype=torch.float16)
+        else:
+            kwargs["torch_dtype"] = "auto"
+        self._model = AutoModelForCausalLM.from_pretrained(model_id, **kwargs)
 
     def generate(self, prompt: str) -> GenResult:
         import time
@@ -358,6 +368,9 @@ def get_model(spec: str) -> ModelClient:
     if kind == "hf":
         # rejoin in case the org/model contains no extra colons
         return LocalHFModel(":".join(parts[1:]))
+    if kind == "hf4":
+        # 4-bit quantized open-weight (fits a 7-8B model on a T4, fast)
+        return LocalHFModel(":".join(parts[1:]), load_4bit=True)
     raise ValueError(f"unknown model spec: {spec}")
 
 
