@@ -279,6 +279,44 @@ class LocalHFModel:
         text = self._tok.decode(gen, skip_special_tokens=True)
         return GenResult(text, n_in, int(gen.shape[0]), dt)
 
+    def generate_batch(self, prompts, batch_size: int = 8):
+        """Batched generation (~10x faster on GPU than one-at-a-time). Uses LEFT
+        padding (required for batched decoder-only generation) and prints a
+        progress line per batch. Returns one GenResult per prompt, in order."""
+        import sys
+        import time
+        self._tok.padding_side = "left"
+        if self._tok.pad_token is None:
+            self._tok.pad_token = self._tok.eos_token
+        results = []
+        n = len(prompts)
+        for i in range(0, n, batch_size):
+            chunk = prompts[i:i + batch_size]
+            texts = [
+                self._tok.apply_chat_template(
+                    [{"role": "user", "content": _strip_eval_meta(p)}],
+                    tokenize=False, add_generation_prompt=True)
+                for p in chunk
+            ]
+            enc = self._tok(texts, return_tensors="pt", padding=True,
+                            add_special_tokens=False).to(self._model.device)
+            in_len = enc["input_ids"].shape[1]
+            t0 = time.time()
+            with self._torch.no_grad():
+                out = self._model.generate(
+                    **enc, max_new_tokens=self.max_new_tokens, do_sample=False,
+                    pad_token_id=self._tok.eos_token_id)
+            dt = (time.time() - t0) * 1000
+            for j in range(len(chunk)):
+                g = out[j][in_len:]
+                results.append(GenResult(
+                    self._tok.decode(g, skip_special_tokens=True),
+                    int(enc["attention_mask"][j].sum()),
+                    int(g.shape[0]), dt / max(1, len(chunk))))
+            print(f"  [{self.name}] generated {len(results)}/{n}",
+                  file=sys.stderr, flush=True)
+        return results
+
     def close(self):
         """Free GPU memory so the next model (or the judge) can load. Used by
         run.py --two-pass to keep peak VRAM at a single model on a free T4."""

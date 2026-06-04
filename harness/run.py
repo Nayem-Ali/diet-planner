@@ -53,30 +53,38 @@ def build_retriever(quality_items, mock: bool):
 
 
 def _generate_for_model(model, quality, redteam, retriever):
-    """Generate (unscored) responses for every condition x item, one model."""
-    recs = []
-    total = len(CONDITIONS) * (len(quality) + len(redteam))
+    """Generate (unscored) responses for every condition x item, one model.
+
+    If the model exposes generate_batch (local GPU models), prompts are batched
+    (~10x faster). API models fall back to one-at-a-time."""
+    # Build every (kind, condition, item, prompt) up front.
+    jobs = []
     for cond in CONDITIONS:
         for item in quality:
-            prompt = build_quality_prompt(item, cond, retriever)
-            r = model.generate(prompt)
-            recs.append(dict(set="quality", model=model.name, condition=cond.name,
-                             item=item.id, prompt=prompt, response=r.text,
-                             latency_ms=round(r.latency_ms, 1),
-                             tokens=r.prompt_tokens + r.completion_tokens))
-            if len(recs) % 20 == 0:
-                print(f"  [{model.name}] generated {len(recs)}/{total}",
-                      file=sys.stderr, flush=True)
+            jobs.append(("quality", cond, item,
+                         build_quality_prompt(item, cond, retriever)))
         for item in redteam:
-            prompt = build_redteam_prompt(item, cond, retriever)
-            r = model.generate(prompt)
-            recs.append(dict(set="safety", model=model.name, condition=cond.name,
-                             item=item.id, prompt=prompt, response=r.text,
-                             latency_ms=round(r.latency_ms, 1),
-                             tokens=r.prompt_tokens + r.completion_tokens))
-            if len(recs) % 20 == 0:
-                print(f"  [{model.name}] generated {len(recs)}/{total}",
+            jobs.append(("safety", cond, item,
+                         build_redteam_prompt(item, cond, retriever)))
+    prompts = [j[3] for j in jobs]
+    total = len(jobs)
+
+    if hasattr(model, "generate_batch"):
+        results = model.generate_batch(prompts)        # batched, prints progress
+    else:
+        results = []
+        for k, p in enumerate(prompts, 1):
+            results.append(model.generate(p))
+            if k % 20 == 0:
+                print(f"  [{model.name}] generated {k}/{total}",
                       file=sys.stderr, flush=True)
+
+    recs = []
+    for (kind, cond, item, prompt), r in zip(jobs, results):
+        recs.append(dict(set=kind, model=model.name, condition=cond.name,
+                         item=item.id, prompt=prompt, response=r.text,
+                         latency_ms=round(r.latency_ms, 1),
+                         tokens=r.prompt_tokens + r.completion_tokens))
     return recs
 
 
